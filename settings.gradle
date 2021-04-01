@@ -1,0 +1,4 @@
+include ':annotationProcessor'
+include ':annotation'
+include ':app', ':framework'
+rootProject.name='MyFramework'

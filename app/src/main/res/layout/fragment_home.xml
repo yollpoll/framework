@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.yollpoll.myframework.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/text_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_aidl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AIDLTest Activity"
+            app:layout_constraintBaseline_toBaselineOf="@+id/text_home"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <Button
+            android:id="@+id/btn_datebinding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="228dp"
+            android:text="Databinding Activity"
+            app:layout_constraintTop_toBottomOf="@+id/btn_aidl" />
+
+        <Button
+            android:id="@+id/btn_lifecycle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="228dp"
+            android:text="Lifecycle Activity"
+            app:layout_constraintTop_toBottomOf="@+id/btn_datebinding" />
+
+        <Button
+            android:id="@+id/btn_livedata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="228dp"
+            android:text="LiveData Activity"
+            app:layout_constraintTop_toBottomOf="@+id/btn_lifecycle" />
+
+        <Button
+            android:id="@+id/btn_paging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paging"
+            app:layout_constraintTop_toBottomOf="@+id/btn_liveEventBus" />
+
+        <Button
+            android:id="@+id/btn_liveEventBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LiveEventBus"
+            app:layout_constraintTop_toBottomOf="@+id/btn_livedata" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
