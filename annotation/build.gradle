@@ -6,3 +6,9 @@ dependencies {
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
+ext {
+    PUBLISH_GROUP_ID = "io.github.yollpoll"		//项目包名
+    PUBLISH_ARTIFACT_ID = 'annotation'			//项目名
+    PUBLISH_VERSION = "0.0.1-SNAPSHOT"				//版本号
+}
+apply from: "${rootProject.projectDir}/publish-jar.gradle"

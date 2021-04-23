@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
+apply plugin: 'signing'
 configurations {
     all {
         exclude module: 'httpclient'
@@ -39,31 +40,78 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId 'com.yollpoll.framework'
-            //You can either define these here or get them from project conf elsewhere
-            artifactId 'FrameWorkLib'
-            version '0.0.1-SNAPSHOT'
-            artifact "$buildDir/outputs/aar/framework-release.aar"
-            //aar artifact you want to publish
-            // generate pom nodes for dependencies
-            pom.withXml {
-                def dependenciesNode = asNode().appendNode('dependencies')
-                configurations.implementation.allDependencies.each { dependency ->
-                    if ("unspecified" != dependenciesNode.name && "unspecified" != dependency.name) {
-                        def dependencyNode = dependenciesNode.appendNode('dependency')
-                        dependencyNode.appendNode('groupId', dependency.group)
-                        dependencyNode.appendNode('artifactId', dependency.name)
-                        dependencyNode.appendNode('version', dependency.version)
-                    }
-                }
-            }
-        }
-    } //publish to filesystem repo
-    repositories { maven { url "$buildDir/repo" } }
-}
+
+//publishing {
+//    publications {
+//        maven(MavenPublication) {
+//            groupId 'io.github.yollpoll'
+//            //You can either define these here or get them from project conf elsewhere
+//            artifactId 'framework'
+//            version '0.0.1-SNAPSHOT'
+//            artifact "$buildDir/outputs/aar/framework-release.aar"
+//            //aar artifact you want to publish
+//            // generate pom nodes for dependencies
+//            pom.withXml {
+////                name = 'framework'
+////                packaging 'aar'
+//                description = 'my android framework'
+//                url = 'https://github.com/yollpoll/framework'
+//                properties = [
+//                        myProp: "value",
+//                        "prop.with.dots": "anotherValue"
+//                ]
+//                licenses {
+//                    license {
+//                        name = 'The Apache License, Version 2.0'
+//                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id = 'yolloll'
+//                        name = 'pengqi.song'
+//                        email = '403716879@qq.com'
+//                    }
+//                }
+//                scm {
+//                    connection = 'scm:git:https://github.com/yollpoll/framework.git'
+//                    developerConnection = 'scm:git:https://github.com/yollpoll/framework.git'
+//                    url = 'https://github.com/yollpoll/framework'
+//                }
+//
+//                def dependenciesNode = asNode().appendNode('dependencies')
+//                configurations.implementation.allDependencies.each { dependency ->
+//                    if ("unspecified" != dependenciesNode.name && "unspecified" != dependency.name) {
+//                        def dependencyNode = dependenciesNode.appendNode('dependency')
+//                        dependencyNode.appendNode('groupId', dependency.group)
+//                        dependencyNode.appendNode('artifactId', dependency.name)
+//                        dependencyNode.appendNode('version', dependency.version)
+//                    }
+//                }
+//
+//            }
+//        }
+//    } //publish to filesystem repo
+//    repositories {
+//        maven {
+//            credentials {
+//                username 'yollpoll' // 仓库发布用户名
+//                password '777861@Ksxz`' // 仓库发布用户密码
+//            }
+//            url "https://s01.oss.sonatype.org"
+////            url "$buildDir/repo"
+//        }
+//        maven {
+//            name "local"
+//            url "$buildDir/repo"
+//        }
+//    }
+//}
+
+
+
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -73,7 +121,8 @@ dependencies {
         exclude group: 'commons-beanutils'
     }
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    api project(path: ':annotation')
+//    api project(path: ':annotation')
+
 
 //    annotationProcessor project(path: ':annotation-compiler')
 //    api project(path: ':annotation')
@@ -113,13 +162,36 @@ dependencies {
     api "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
 
     // optional - Test helpers for LiveData
-    testApi "androidx.arch.core:core-testing:$arch_version"
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
 
     api 'com.google.code.gson:gson:2.8.6'
 
     api 'com.neovisionaries:nv-websocket-client:2.10'
 
+    //retrofit
+    //配置retrofit2.0
+    api 'com.squareup.retrofit2:retrofit:+'
+    api 'com.squareup.retrofit2:converter-gson:+'
+    //Rxjava2需要依赖
+    api 'io.reactivex.rxjava2:rxjava:+'
+    api 'io.reactivex.rxjava2:rxandroid:+'
+
+    //让retrofit支持Rxjava2
+    api 'com.squareup.retrofit2:adapter-rxjava2:+'
+    api 'com.squareup.okhttp3:okhttp:3.4.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.4.0'
+
+    api ('io.github.yollpoll:annotation:0.0.1-SNAPSHOT'){
+        changing = true
+        transitive=true}
+
 }
 repositories {
     mavenCentral()
 }
+ext {
+    PUBLISH_GROUP_ID = "io.github.yollpoll"		//项目包名
+    PUBLISH_ARTIFACT_ID = 'framework'			//项目名
+    PUBLISH_VERSION = "0.0.1-SNAPSHOT"				//版本号
+}
+apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

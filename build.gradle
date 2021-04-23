@@ -23,6 +23,9 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url "/Users/songpengqi/workspace/MyFramework/framework/build/repo"
+        }
         google()
         jcenter()
         
