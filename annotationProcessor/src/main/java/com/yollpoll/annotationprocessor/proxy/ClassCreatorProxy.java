@@ -30,7 +30,6 @@ public class ClassCreatorProxy extends CreatorProxy{
 
     /**
      * 创建Java代码
-     * @return
      */
     @Override
     public TypeSpec generateJavaCode() {

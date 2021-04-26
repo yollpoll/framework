@@ -4,7 +4,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.google.auto.service:auto-service:1.0-rc6'
-    implementation ('io.github.yollpoll:annotation:0.0.1-SNAPSHOT'){
+    implementation ('io.github.yollpoll:annotation:0.0.1'){
         changing = true
         transitive=true}
 //    implementation project(path: ':annotation')
@@ -19,6 +19,6 @@ targetCompatibility = "1.8"
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"		//项目包名
     PUBLISH_ARTIFACT_ID = 'annotationProcessor'			//项目名
-    PUBLISH_VERSION = "0.0.1-SNAPSHOT"				//版本号
+    PUBLISH_VERSION = "0.0.1"				//版本号
 }
 apply from: "${rootProject.projectDir}/publish-jar.gradle"

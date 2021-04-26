@@ -1,5 +1,6 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
+apply plugin: 'java-library'
 
 
 ext["signing.keyId"] = ''
@@ -8,6 +9,15 @@ ext["signing.secretKeyRingFile"] = ''
 ext["ossrhUsername"] = ''
 ext["ossrhPassword"] = ''
 
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
 File secretPropsFile = project.rootProject.file('local.properties')
 if (secretPropsFile.exists()) {
     println "Found secret props file, loading props"
@@ -27,9 +37,11 @@ publishing {
             groupId PUBLISH_GROUP_ID
             artifactId PUBLISH_ARTIFACT_ID
             version PUBLISH_VERSION
-
+            from components.java
             // Two artifacts, the `aar` and the sources
-            artifact("$buildDir/libs/${project.getName()}.jar")
+//            artifact("$buildDir/libs/${project.getName()}.jar")
+            artifact javadocJar
+            artifact sourcesJar
 
             // Self-explanatory metadata for the most part
             pom {
@@ -79,30 +91,51 @@ publishing {
     }
     repositories {
         // The repository to publish to, Sonatype/MavenCentral
-//        maven {
-//            // This is an arbitrary name, you may also use "mavencentral" or
-//            // any other name that's descriptive for you
-//            name "mavencentral"
-//            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-//            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-//            // You only need this if you want to publish snapshots, otherwise just set the URL
-//            // to the release repo directly
-//            println(version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl)
-//
-//            // The username and password we've fetched earlier
-//            credentials {
-//                username ossrhUsername
-//                password ossrhPassword
-//            }
-//        }
+        maven {
+            // This is an arbitrary name, you may also use "mavencentral" or
+            // any other name that's descriptive for you
+            name "mavencentral"
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            // You only need this if you want to publish snapshots, otherwise just set the URL
+            // to the release repo directly
+            println(version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl)
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            // The username and password we've fetched earlier
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+        }
         maven {
             name "local"
             url "/Users/songpengqi/workspace/MyFramework/framework/build/repo"
         }
     }
 }
-//signing {
-////    sign configurations.archives
+signing {
 //    sign configurations.archives
-////    sign publishing.publications.release
-//}
+//    sign configurations.archives
+    sign publishing.publications
+}
+
+javadoc {
+    description = "生成jar格式的javadoc。"
+    // 只显示 protected 和 public 的类和成员
+    options.memberLevel = org.gradle.external.javadoc.JavadocMemberLevel.PROTECTED
+    options.author = true
+    options.version = true
+    options.header = project.name
+    // 静默javadoc检查（比如不支持@date会报错等），jdk 8+
+    options.addStringOption('Xdoclint:none', '-quiet')
+    // 防止本地打开中文乱码
+    options.addStringOption("charset", "UTF-8")
+    // suppress warnings due to cross-module @see and @link references;
+    // note that global 'api' task does display all warnings.
+    logging.captureStandardError LogLevel.INFO
+    // suppress "## warnings" message
+    logging.captureStandardOutput LogLevel.INFO
+    // 编码一定要配置否则直接出错
+    options.encoding = "UTF-8"
+    options.charSet = "UTF-8"
+}

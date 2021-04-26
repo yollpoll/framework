@@ -4,6 +4,9 @@ apply plugin: 'signing'
 task androidSourcesJar(type: Jar) {
     classifier = 'sources'
     from android.sourceSets.main.java.source
+
+    exclude "**/R.class"
+    exclude "**/BuildConfig.class"
 }
 
 ext["signing.keyId"] = ''
@@ -18,6 +21,7 @@ if (secretPropsFile.exists()) {
     Properties p = new Properties()
     p.load(new FileInputStream(secretPropsFile))
     p.each { name, value ->
+        println("${name}>>>>>>> ${value}")
         ext[name] = value
     }
 } else {
@@ -84,22 +88,23 @@ publishing {
     }
     repositories {
         // The repository to publish to, Sonatype/MavenCentral
-//        maven {
-//            // This is an arbitrary name, you may also use "mavencentral" or
-//            // any other name that's descriptive for you
-//            name "mavencentral"
-//            def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-//            def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
-//            // You only need this if you want to publish snapshots, otherwise just set the URL
-//            // to the release repo directly
-//            println(version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl)
-//
-//            // The username and password we've fetched earlier
-//            credentials {
-//                username ossrhUsername
-//                password ossrhPassword
-//            }
-//        }
+        maven {
+            // This is an arbitrary name, you may also use "mavencentral" or
+            // any other name that's descriptive for you
+            name "mavencentral"
+            def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+            // You only need this if you want to publish snapshots, otherwise just set the URL
+            // to the release repo directly
+            println(version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl)
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+            // The username and password we've fetched earlier
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
+        }
         maven {
             name "local"
             url "$buildDir/repo"
@@ -108,5 +113,5 @@ publishing {
 }
 signing {
 //    sign configurations.archives
-//    sign publishing.publications.release
+    sign publishing.publications
 }

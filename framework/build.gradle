@@ -181,7 +181,7 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:3.4.0'
     api 'com.squareup.okhttp3:logging-interceptor:3.4.0'
 
-    api ('io.github.yollpoll:annotation:0.0.1-SNAPSHOT'){
+    api ('io.github.yollpoll:annotation:0.0.1'){
         changing = true
         transitive=true}
 
@@ -192,6 +192,6 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"		//项目包名
     PUBLISH_ARTIFACT_ID = 'framework'			//项目名
-    PUBLISH_VERSION = "0.0.1-SNAPSHOT"				//版本号
+    PUBLISH_VERSION = "0.0.1"				//版本号
 }
 apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

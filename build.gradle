@@ -4,6 +4,7 @@ buildscript {
 
     ext {
         kotlin_version = '1.3.72'
+        dokka_version = '1.4.10.2'
     }
     repositories {
         google()
@@ -12,7 +13,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.3'
-        
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokka_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         ext.kotlin_version="1.3.72"
@@ -23,9 +24,10 @@ buildscript {
 
 allprojects {
     repositories {
-        maven {
-            url "/Users/songpengqi/workspace/MyFramework/framework/build/repo"
-        }
+        mavenCentral()
+//        maven {
+//            url "/Users/songpengqi/workspace/MyFramework/framework/build/repo"
+//        }
         google()
         jcenter()
         

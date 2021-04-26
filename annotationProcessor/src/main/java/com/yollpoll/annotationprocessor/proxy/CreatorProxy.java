@@ -26,7 +26,7 @@ public abstract class CreatorProxy {
     /**
      * 创建Java代码
      *
-     * @return
+     * @return 生成java代码
      */
     public abstract TypeSpec generateJavaCode();
 
