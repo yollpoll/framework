@@ -1,19 +1,27 @@
 package com.yollpoll.framework.base;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.Observable;
 import androidx.databinding.PropertyChangeRegistry;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.ViewModel;
 
 /**
  * Created by spq on 2020-06-04
  */
-public abstract class BaseViewModel extends ViewModel implements Observable {
+public abstract class BaseViewModel extends AndroidViewModel implements Observable {
 
     /************************Observable start************************/
 
     private transient PropertyChangeRegistry mCallbacks;
+
+    public BaseViewModel(@NonNull Application application) {
+        super(application);
+    }
 
     @Override
     public void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {

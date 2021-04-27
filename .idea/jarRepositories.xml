@@ -36,5 +36,20 @@
       <option name="name" value="maven" />
       <option name="url" value="file:$PROJECT_DIR$/framework/build/repo/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven" />
+      <option name="name" value="maven" />
+      <option name="url" value="https://jitpack.io" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local" />
+      <option name="name" value="local" />
+      <option name="url" value="file:$PROJECT_DIR$/annotationProcessor/build/repo" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="mavencentral" />
+      <option name="name" value="mavencentral" />
+      <option name="url" value="https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/" />
+    </remote-repository>
   </component>
 </project>

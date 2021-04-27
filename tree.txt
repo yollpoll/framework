@@ -1,0 +1,359 @@
+Apache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)
+Maven home: /Users/songpengqi/local/apache-maven-3.8.1
+Java version: 13.0.1, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+Default locale: zh_CN_#Hans, platform encoding: UTF-8
+OS name: "mac os x", version: "10.15.4", arch: "x86_64", family: "mac"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.util.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.event.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from /Users/songpengqi/local/apache-maven-3.8.1/conf/settings.xml
+[DEBUG] Reading user settings from /Users/songpengqi/.m2/settings.xml
+[DEBUG] Reading global toolchains from /Users/songpengqi/local/apache-maven-3.8.1/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /Users/songpengqi/.m2/toolchains.xml
+[DEBUG] Using local repository at /Users/songpengqi/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /Users/songpengqi/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project org.apache.maven:standalone-pom:pom:1: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Resolving plugin prefix dependency from [org.apache.maven.plugins, org.codehaus.mojo]
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom
+Progress (1): maven-clean-plugin-2.5.pom (2.7/3.9 kB)Progress (1): maven-clean-plugin-2.5.pom (3.9 kB)                                                     Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom (3.9 kB at 931 B/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/2.5/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom
+Progress (1): maven-plugins-22.pom (2.7/13 kB)Progress (1): maven-plugins-22.pom (5.5/13 kB)Progress (1): maven-plugins-22.pom (8.2/13 kB)Progress (1): maven-plugins-22.pom (11/13 kB) Progress (1): maven-plugins-22.pom (13 kB)                                             Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom (13 kB at 25 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/22/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/22/maven-plugins-22.pom.lastUpdated
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for apache.snapshots (http://repository.apache.org/snapshots).
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/21/maven-parent-21.pom
+Progress (1): maven-parent-21.pom (2.7/26 kB)Progress (1): maven-parent-21.pom (5.5/26 kB)Progress (1): maven-parent-21.pom (8.2/26 kB)Progress (1): maven-parent-21.pom (11/26 kB) Progress (1): maven-parent-21.pom (14/26 kB)Progress (1): maven-parent-21.pom (16/26 kB)Progress (1): maven-parent-21.pom (19/26 kB)Progress (1): maven-parent-21.pom (22/26 kB)Progress (1): maven-parent-21.pom (25/26 kB)Progress (1): maven-parent-21.pom (26 kB)                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/21/maven-parent-21.pom (26 kB at 27 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/21/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/21/maven-parent-21.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/10/apache-10.pom
+Progress (1): apache-10.pom (2.7/15 kB)Progress (1): apache-10.pom (5.5/15 kB)Progress (1): apache-10.pom (8.2/15 kB)Progress (1): apache-10.pom (11/15 kB) Progress (1): apache-10.pom (14/15 kB)Progress (1): apache-10.pom (15 kB)                                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/10/apache-10.pom (15 kB at 29 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/10/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/10/apache-10.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar
+Progress (1): maven-clean-plugin-2.5.jar (2.7/25 kB)Progress (1): maven-clean-plugin-2.5.jar (5.5/25 kB)Progress (1): maven-clean-plugin-2.5.jar (8.2/25 kB)Progress (1): maven-clean-plugin-2.5.jar (11/25 kB) Progress (1): maven-clean-plugin-2.5.jar (14/25 kB)Progress (1): maven-clean-plugin-2.5.jar (16/25 kB)Progress (1): maven-clean-plugin-2.5.jar (19/25 kB)Progress (1): maven-clean-plugin-2.5.jar (22/25 kB)Progress (1): maven-clean-plugin-2.5.jar (25 kB)                                                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar (25 kB at 52 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/2.5/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-clean-plugin/2.5/maven-clean-plugin-2.5.jar.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom
+Progress (1): maven-install-plugin-2.4.pom (2.7/6.4 kB)Progress (1): maven-install-plugin-2.4.pom (5.5/6.4 kB)Progress (1): maven-install-plugin-2.4.pom (6.4 kB)                                                       Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom (6.4 kB at 14 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-install-plugin/2.4/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom
+Progress (1): maven-plugins-23.pom (2.7/9.2 kB)Progress (1): maven-plugins-23.pom (5.5/9.2 kB)Progress (1): maven-plugins-23.pom (8.2/9.2 kB)Progress (1): maven-plugins-23.pom (9.2 kB)                                               Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom (9.2 kB at 13 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/23/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/23/maven-plugins-23.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/22/maven-parent-22.pom
+Progress (1): maven-parent-22.pom (2.7/30 kB)Progress (1): maven-parent-22.pom (5.5/30 kB)Progress (1): maven-parent-22.pom (8.2/30 kB)Progress (1): maven-parent-22.pom (11/30 kB) Progress (1): maven-parent-22.pom (14/30 kB)Progress (1): maven-parent-22.pom (16/30 kB)Progress (1): maven-parent-22.pom (19/30 kB)Progress (1): maven-parent-22.pom (22/30 kB)Progress (1): maven-parent-22.pom (25/30 kB)Progress (1): maven-parent-22.pom (27/30 kB)Progress (1): maven-parent-22.pom (30 kB)                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/22/maven-parent-22.pom (30 kB at 39 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/22/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/22/maven-parent-22.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/11/apache-11.pom
+Progress (1): apache-11.pom (2.7/15 kB)Progress (1): apache-11.pom (5.5/15 kB)Progress (1): apache-11.pom (8.2/15 kB)Progress (1): apache-11.pom (11/15 kB) Progress (1): apache-11.pom (14/15 kB)Progress (1): apache-11.pom (15 kB)                                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/11/apache-11.pom (15 kB at 34 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/11/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/11/apache-11.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar
+Progress (1): maven-install-plugin-2.4.jar (2.7/27 kB)Progress (1): maven-install-plugin-2.4.jar (5.5/27 kB)Progress (1): maven-install-plugin-2.4.jar (8.2/27 kB)Progress (1): maven-install-plugin-2.4.jar (11/27 kB) Progress (1): maven-install-plugin-2.4.jar (14/27 kB)Progress (1): maven-install-plugin-2.4.jar (16/27 kB)Progress (1): maven-install-plugin-2.4.jar (19/27 kB)Progress (1): maven-install-plugin-2.4.jar (22/27 kB)Progress (1): maven-install-plugin-2.4.jar (25/27 kB)Progress (1): maven-install-plugin-2.4.jar (27 kB)                                                     Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar (27 kB at 30 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-install-plugin/2.4/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-install-plugin/2.4/maven-install-plugin-2.4.jar.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom
+Progress (1): maven-deploy-plugin-2.7.pom (2.7/5.6 kB)Progress (1): maven-deploy-plugin-2.7.pom (5.5/5.6 kB)Progress (1): maven-deploy-plugin-2.7.pom (5.6 kB)                                                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom (5.6 kB at 8.2 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-deploy-plugin/2.7/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar
+Progress (1): maven-deploy-plugin-2.7.jar (2.7/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (5.5/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (8.2/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (11/27 kB) Progress (1): maven-deploy-plugin-2.7.jar (14/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (16/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (19/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (22/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (25/27 kB)Progress (1): maven-deploy-plugin-2.7.jar (27 kB)                                                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar (27 kB at 43 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-deploy-plugin/2.7/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-deploy-plugin/2.7/maven-deploy-plugin-2.7.jar.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom
+Progress (1): maven-site-plugin-3.3.pom (4.1/21 kB)Progress (1): maven-site-plugin-3.3.pom (8.2/21 kB)Progress (1): maven-site-plugin-3.3.pom (12/21 kB) Progress (1): maven-site-plugin-3.3.pom (16/21 kB)Progress (1): maven-site-plugin-3.3.pom (20/21 kB)Progress (1): maven-site-plugin-3.3.pom (21 kB)                                                  Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom (21 kB at 35 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-site-plugin/3.3/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/24/maven-plugins-24.pom
+Progress (1): maven-plugins-24.pom (4.1/11 kB)Progress (1): maven-plugins-24.pom (8.2/11 kB)Progress (1): maven-plugins-24.pom (11 kB)                                              Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/24/maven-plugins-24.pom (11 kB at 18 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/24/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/24/maven-plugins-24.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/23/maven-parent-23.pom
+Progress (1): maven-parent-23.pom (4.1/33 kB)Progress (1): maven-parent-23.pom (8.2/33 kB)Progress (1): maven-parent-23.pom (12/33 kB) Progress (1): maven-parent-23.pom (16/33 kB)Progress (1): maven-parent-23.pom (20/33 kB)Progress (1): maven-parent-23.pom (25/33 kB)Progress (1): maven-parent-23.pom (29/33 kB)Progress (1): maven-parent-23.pom (33 kB)                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/23/maven-parent-23.pom (33 kB at 60 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/23/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/23/maven-parent-23.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/13/apache-13.pom
+Progress (1): apache-13.pom (4.1/14 kB)Progress (1): apache-13.pom (8.2/14 kB)Progress (1): apache-13.pom (12/14 kB) Progress (1): apache-13.pom (14 kB)                                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/13/apache-13.pom (14 kB at 27 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/13/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/13/apache-13.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar
+Progress (1): maven-site-plugin-3.3.jar (4.1/124 kB)Progress (1): maven-site-plugin-3.3.jar (8.2/124 kB)Progress (1): maven-site-plugin-3.3.jar (12/124 kB) Progress (1): maven-site-plugin-3.3.jar (16/124 kB)Progress (1): maven-site-plugin-3.3.jar (20/124 kB)Progress (1): maven-site-plugin-3.3.jar (25/124 kB)Progress (1): maven-site-plugin-3.3.jar (29/124 kB)Progress (1): maven-site-plugin-3.3.jar (33/124 kB)Progress (1): maven-site-plugin-3.3.jar (37/124 kB)Progress (1): maven-site-plugin-3.3.jar (41/124 kB)Progress (1): maven-site-plugin-3.3.jar (45/124 kB)Progress (1): maven-site-plugin-3.3.jar (49/124 kB)Progress (1): maven-site-plugin-3.3.jar (53/124 kB)Progress (1): maven-site-plugin-3.3.jar (57/124 kB)Progress (1): maven-site-plugin-3.3.jar (61/124 kB)Progress (1): maven-site-plugin-3.3.jar (66/124 kB)Progress (1): maven-site-plugin-3.3.jar (70/124 kB)Progress (1): maven-site-plugin-3.3.jar (74/124 kB)Progress (1): maven-site-plugin-3.3.jar (78/124 kB)Progress (1): maven-site-plugin-3.3.jar (82/124 kB)Progress (1): maven-site-plugin-3.3.jar (86/124 kB)Progress (1): maven-site-plugin-3.3.jar (90/124 kB)Progress (1): maven-site-plugin-3.3.jar (94/124 kB)Progress (1): maven-site-plugin-3.3.jar (98/124 kB)Progress (1): maven-site-plugin-3.3.jar (102/124 kB)Progress (1): maven-site-plugin-3.3.jar (106/124 kB)Progress (1): maven-site-plugin-3.3.jar (111/124 kB)Progress (1): maven-site-plugin-3.3.jar (115/124 kB)Progress (1): maven-site-plugin-3.3.jar (119/124 kB)Progress (1): maven-site-plugin-3.3.jar (123/124 kB)Progress (1): maven-site-plugin-3.3.jar (124 kB)                                                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar (124 kB at 188 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-site-plugin/3.3/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-site-plugin/3.3/maven-site-plugin-3.3.jar.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom
+Progress (1): maven-antrun-plugin-1.3.pom (4.1/4.7 kB)Progress (1): maven-antrun-plugin-1.3.pom (4.7 kB)                                                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom (4.7 kB at 9.9 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-antrun-plugin/1.3/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom
+Progress (1): maven-plugins-12.pom (4.1/12 kB)Progress (1): maven-plugins-12.pom (8.2/12 kB)Progress (1): maven-plugins-12.pom (12 kB)                                              Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom (12 kB at 27 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/12/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/12/maven-plugins-12.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/9/maven-parent-9.pom
+Progress (1): maven-parent-9.pom (4.1/33 kB)Progress (1): maven-parent-9.pom (8.2/33 kB)Progress (1): maven-parent-9.pom (12/33 kB) Progress (1): maven-parent-9.pom (16/33 kB)Progress (1): maven-parent-9.pom (20/33 kB)Progress (1): maven-parent-9.pom (25/33 kB)Progress (1): maven-parent-9.pom (29/33 kB)Progress (1): maven-parent-9.pom (33/33 kB)Progress (1): maven-parent-9.pom (33 kB)                                           Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/9/maven-parent-9.pom (33 kB at 34 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/9/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/9/maven-parent-9.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/4/apache-4.pom
+Progress (1): apache-4.pom (4.1/4.5 kB)Progress (1): apache-4.pom (4.5 kB)                                       Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/4/apache-4.pom (4.5 kB at 10 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/4/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/4/apache-4.pom.lastUpdated
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for apache.snapshots (http://people.apache.org/repo/m2-snapshot-repository).
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar
+Progress (1): maven-antrun-plugin-1.3.jar (4.1/24 kB)Progress (1): maven-antrun-plugin-1.3.jar (8.2/24 kB)Progress (1): maven-antrun-plugin-1.3.jar (12/24 kB) Progress (1): maven-antrun-plugin-1.3.jar (16/24 kB)Progress (1): maven-antrun-plugin-1.3.jar (20/24 kB)Progress (1): maven-antrun-plugin-1.3.jar (24 kB)                                                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar (24 kB at 17 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-antrun-plugin/1.3/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-antrun-plugin/1.3/maven-antrun-plugin-1.3.jar.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.pom
+Progress (1): maven-assembly-plugin-2.2-beta-5.pom (4.1/15 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.pom (8.2/15 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.pom (12/15 kB) Progress (1): maven-assembly-plugin-2.2-beta-5.pom (15 kB)                                                             Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.pom (15 kB at 33 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.pom.lastUpdated
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for codehaus.org (http://snapshots.repository.codehaus.org).
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/16/maven-plugins-16.pom
+Progress (1): maven-plugins-16.pom (4.1/13 kB)Progress (1): maven-plugins-16.pom (8.2/13 kB)Progress (1): maven-plugins-16.pom (12/13 kB) Progress (1): maven-plugins-16.pom (13 kB)                                             Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/16/maven-plugins-16.pom (13 kB at 19 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/16/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-plugins/16/maven-plugins-16.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/15/maven-parent-15.pom
+Progress (1): maven-parent-15.pom (4.1/24 kB)Progress (1): maven-parent-15.pom (8.2/24 kB)Progress (1): maven-parent-15.pom (12/24 kB) Progress (1): maven-parent-15.pom (16/24 kB)Progress (1): maven-parent-15.pom (20/24 kB)Progress (1): maven-parent-15.pom (24 kB)                                            Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/maven-parent/15/maven-parent-15.pom (24 kB at 30 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/15/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/maven-parent/15/maven-parent-15.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/apache/6/apache-6.pom
+Progress (1): apache-6.pom (4.1/13 kB)Progress (1): apache-6.pom (8.2/13 kB)Progress (1): apache-6.pom (12/13 kB) Progress (1): apache-6.pom (13 kB)                                     Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/apache/6/apache-6.pom (13 kB at 28 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/6/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/apache/6/apache-6.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.jar
+Progress (1): maven-assembly-plugin-2.2-beta-5.jar (4.1/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (8.2/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (12/209 kB) Progress (1): maven-assembly-plugin-2.2-beta-5.jar (16/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (20/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (25/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (29/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (33/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (37/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (41/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (45/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (49/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (53/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (57/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (61/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (66/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (70/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (74/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (78/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (82/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (86/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (90/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (94/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (98/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (102/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (106/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (111/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (115/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (119/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (123/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (127/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (131/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (135/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (139/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (143/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (147/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (152/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (156/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (160/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (164/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (168/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (172/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (176/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (180/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (184/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (188/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (193/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (197/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (201/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (205/209 kB)Progress (1): maven-assembly-plugin-2.2-beta-5.jar (209 kB)                                                               Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.jar (209 kB at 111 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-assembly-plugin/2.2-beta-5/maven-assembly-plugin-2.2-beta-5.jar.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom
+Progress (1): maven-dependency-plugin-2.8.pom (4.1/11 kB)Progress (1): maven-dependency-plugin-2.8.pom (8.2/11 kB)Progress (1): maven-dependency-plugin-2.8.pom (11 kB)                                                         Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom (11 kB at 13 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.pom.lastUpdated
+[DEBUG] Using transporter WagonTransporter with priority -1.0 for https://repo.maven.apache.org/maven2
+[DEBUG] Using connector BasicRepositoryConnector with priority 0.0 for https://repo.maven.apache.org/maven2
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar
+Progress (1): maven-dependency-plugin-2.8.jar (4.1/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (8.2/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (12/153 kB) Progress (1): maven-dependency-plugin-2.8.jar (16/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (20/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (25/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (29/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (33/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (37/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (41/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (45/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (49/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (53/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (57/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (61/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (66/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (70/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (74/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (78/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (82/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (86/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (90/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (94/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (98/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (102/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (106/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (111/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (115/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (119/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (123/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (127/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (131/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (135/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (139/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (143/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (147/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (152/153 kB)Progress (1): maven-dependency-plugin-2.8.jar (153 kB)                                                          Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar (153 kB at 218 kB/s)
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/_remote.repositories
+[DEBUG] Writing tracking file /Users/songpengqi/.m2/repository/org/apache/maven/plugins/maven-dependency-plugin/2.8/maven-dependency-plugin-2.8.jar.lastUpdated
+[DEBUG] Resolved plugin prefix dependency to org.apache.maven.plugins:maven-dependency-plugin from POM org.apache.maven:standalone-pom:pom:1
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.apache.maven:standalone-pom:pom:1
+[DEBUG] Tasks:   [dependency:tree]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[DEBUG] Resolving plugin prefix dependency from [org.apache.maven.plugins, org.codehaus.mojo]
+[DEBUG] Resolved plugin prefix dependency to org.apache.maven.plugins:maven-dependency-plugin from POM org.apache.maven:standalone-pom:pom:1
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.apache.maven:standalone-pom:1
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [test]
+[DEBUG] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-dependency-plugin:2.8:tree (default-cli)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appendOutput default-value="false">${appendOutput}</appendOutput>
+  <excludes>${excludes}</excludes>
+  <includes>${includes}</includes>
+  <localRepository default-value="${localRepository}"/>
+  <output>${output}</output>
+  <outputFile>${outputFile}</outputFile>
+  <outputType default-value="text">${outputType}</outputType>
+  <scope>${scope}</scope>
+  <skip default-value="false">${skip}</skip>
+  <tokens default-value="standard">${tokens}</tokens>
+  <verbose default-value="false">${verbose}</verbose>
+  <project default-value="${project}"/>
+</configuration>
+[DEBUG] =======================================================================
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  24.443 s
+[INFO] Finished at: 2021-04-26T16:04:35+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:2.8:tree (default-cli): Goal requires a project to execute but there is no POM in this directory (/Users/songpengqi/workspace/MyFramework). Please verify you invoked Maven from the correct directory. -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.apache.maven.plugins:maven-dependency-plugin:2.8:tree (default-cli): Goal requires a project to execute but there is no POM in this directory (/Users/songpengqi/workspace/MyFramework). Please verify you invoked Maven from the correct directory.
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:181)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:156)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:148)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:957)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:289)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:193)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:567)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:282)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:225)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:406)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:347)
+Caused by: org.apache.maven.lifecycle.MissingProjectException: Goal requires a project to execute but there is no POM in this directory (/Users/songpengqi/workspace/MyFramework). Please verify you invoked Maven from the correct directory.
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:179)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:156)
+    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:148)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
+    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
+    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:957)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:289)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:193)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
+    at jdk.internal.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
+    at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
+    at java.lang.reflect.Method.invoke (Method.java:567)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:282)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:225)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:406)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:347)
+[ERROR] 
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException

@@ -35,19 +35,24 @@ publishing {
             // The coordinates of the library, being set from variables that
             // we'll set up in a moment
             groupId PUBLISH_GROUP_ID
+            println("groupId:" + PUBLISH_GROUP_ID)
+
             artifactId PUBLISH_ARTIFACT_ID
+            println("artifactId:" + PUBLISH_ARTIFACT_ID)
+
             version PUBLISH_VERSION
+            println("version:" + PUBLISH_VERSION)
+
             from components.java
             // Two artifacts, the `aar` and the sources
 //            artifact("$buildDir/libs/${project.getName()}.jar")
             artifact javadocJar
             artifact sourcesJar
-            println(">>>>>>>>>>>><<$buildDir")
             // Self-explanatory metadata for the most part
             pom {
                 name = PUBLISH_ARTIFACT_ID
-                println("$PUBLISH_ARTIFACT_ID")
-                description = 'my annotation'
+                println("name: $PUBLISH_ARTIFACT_ID")
+                description = 'annotationProcessor'
                 // If your project has a dedicated site, use its URL here
                 url = 'https://github.com/yollpoll/framework'
                 licenses {
@@ -74,19 +79,18 @@ publishing {
                 }
                 // A slightly hacky fix so that your POM will include any transitive dependencies
                 // that your library builds upon
-                withXml {
-                    def dependenciesNode = asNode().appendNode('dependencies')
-
-                    project.configurations.implementation.allDependencies.each {
-                        println(it.name)
-                        if (!'unspecified'.equals(it.name)) {
-                            def dependencyNode = dependenciesNode.appendNode('dependency')
-                            dependencyNode.appendNode('groupId', it.group)
-                            dependencyNode.appendNode('artifactId', it.name)
-                            dependencyNode.appendNode('version', it.version)
-                        }
-                    }
-                }
+//                withXml {
+//                    def dependenciesNode = asNode().appendNode('dependencies')
+//                    project.configurations.implementation.allDependencies.each {
+//                        println("dependencyName: " + it.name)
+//                        if (!'unspecified'.equals(it.name)) {
+//                            def dependencyNode = dependenciesNode.appendNode('dependency')
+//                            dependencyNode.appendNode('groupId', it.group)
+//                            dependencyNode.appendNode('artifactId', it.name)
+//                            dependencyNode.appendNode('version', it.version)
+//                        }
+//                    }
+//                }
             }
         }
     }

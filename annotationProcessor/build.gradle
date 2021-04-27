@@ -7,8 +7,6 @@ dependencies {
     implementation ('io.github.yollpoll:annotation:0.0.1'){
         changing = true
         transitive=true}
-//    implementation project(path: ':annotation')
-//    implementation project(path: ':framework')
     annotationProcessor 'com.google.auto.service:auto-service:1.0-rc6'
     implementation 'com.squareup:javapoet:1.13.0' //javapoet代码生成框架
 }
@@ -18,7 +16,7 @@ targetCompatibility = "1.8"
 
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"		//项目包名
-    PUBLISH_ARTIFACT_ID = 'annotationProcessor'			//项目名
+    PUBLISH_ARTIFACT_ID = 'kapt'			//项目名
     PUBLISH_VERSION = "0.0.1"				//版本号
 }
-apply from: "${rootProject.projectDir}/publish-jar.gradle"
+apply from: "${rootProject.projectDir}/annotationProcessor-publish.gradle"

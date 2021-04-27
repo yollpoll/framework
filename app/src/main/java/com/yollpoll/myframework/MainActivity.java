@@ -42,7 +42,6 @@ public class MainActivity extends BusinessActivity<ActivityMainBinding, MainView
         NavigationUI.setupWithNavController(navView, navController);
         Log.d(TAG, "onCreate: " + Thread.currentThread().getName());
 
-
     }
 
     @OnMessage()
