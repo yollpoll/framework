@@ -45,5 +45,6 @@ public abstract class FastViewModel extends BaseViewModel {
 
     public <T> void sendEmptyMessage(String methodName) {
         MessageManager.getInstance().sendMessage(methodName,NonType.INSTANCE);
+//        LiveEventBus.use(methodName, NonType.class).post(NonType.INSTANCE);
     }
 }

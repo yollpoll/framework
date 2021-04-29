@@ -201,6 +201,18 @@ dependencies {
     // Alternatively - use the following artifact without an Android dependency.
     api "androidx.datastore:datastore-preferences-core:1.0.0-alpha08"
 
+    /*paging start*/
+    def paging_version = "2.1.2"
+    api "androidx.paging:paging-runtime-ktx:$paging_version"
+    // For Kotlin use paging-runtime-ktx
+    // alternatively - without Android dependencies for testing
+    api "androidx.paging:paging-common-ktx:$paging_version"
+    // For Kotlin use paging-common-ktx
+    // optional - RxJava support
+    api "androidx.paging:paging-rxjava2-ktx:$paging_version"
+    // For Kotlin use paging-rxjava2-ktx
+    /*paging end*/
+
 
     //三大控件kotlin拓展
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktx_version"
@@ -219,6 +231,6 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"        //项目包名
     PUBLISH_ARTIFACT_ID = 'framework'            //项目名
-    PUBLISH_VERSION = "0.0.1"                //版本号
+    PUBLISH_VERSION = "0.0.2"                //版本号
 }
 apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

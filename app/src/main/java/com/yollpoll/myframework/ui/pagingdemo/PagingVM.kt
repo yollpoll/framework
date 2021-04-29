@@ -1,5 +1,6 @@
 package com.yollpoll.myframework.ui.pagingdemo
 
+import android.app.Application
 import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -7,13 +8,14 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.yollpoll.fast.FastViewModel
 import com.yollpoll.framework.base.BaseViewModel
 import com.yollpoll.myframework.room.MainDB
 
 /**
  * Created by spq on 2021/1/19
  */
-class PagingVM : BaseViewModel() {
+class PagingVM(application: Application) : FastViewModel(application) {
     val data: LiveData<PagedList<DataItem>>
 
     val config = PagedList.Config.Builder()

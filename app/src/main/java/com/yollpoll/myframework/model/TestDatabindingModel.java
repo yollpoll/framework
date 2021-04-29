@@ -1,5 +1,8 @@
 package com.yollpoll.myframework.model;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
 import androidx.databinding.Bindable;
 
 import com.yollpoll.framework.base.BaseViewModel;
@@ -10,6 +13,11 @@ import com.yollpoll.framework.base.BaseViewModel;
 public class TestDatabindingModel extends BaseViewModel {
     @Bindable
     private String name;
+
+    public TestDatabindingModel(@NonNull Application application) {
+        super(application);
+    }
+
 
     public String getName() {
         return name;

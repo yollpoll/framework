@@ -84,7 +84,8 @@ public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends Base
     @Override
     public VM getViewModel() {
         if (null == mViewModel) {
-            mViewModel = (VM) new ViewModelProvider(this).get(AnnotationHandler.getViewModelClass(this));
+            mViewModel= (VM) new ViewModelProvider(this,new ViewModelProvider.AndroidViewModelFactory(BaseApplication.getINSTANCE())).get(AnnotationHandler.getViewModelClass(this));
+//            mViewModel = (VM) new ViewModelProvider(this).get(AnnotationHandler.getViewModelClass(this));
         }
         return mViewModel;
     }

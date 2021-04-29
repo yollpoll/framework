@@ -1,8 +1,12 @@
 package com.yollpoll.myframework.ui.databinding;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 
 
+import com.yollpoll.fast.FastViewModel;
 import com.yollpoll.myframework.model.TestDatabindingModel;
 
 import java.util.logging.Handler;
@@ -10,9 +14,11 @@ import java.util.logging.Handler;
 /**
  * Created by spq on 2020-06-02
  */
-public class DataBindingViewModel extends ViewModel {
-    TestDatabindingModel testDatabindingModel=new TestDatabindingModel();
-    public DataBindingViewModel() {
+public class DataBindingViewModel extends FastViewModel {
+    TestDatabindingModel testDatabindingModel=new TestDatabindingModel(getApplication());
+
+    public DataBindingViewModel(@NonNull Application application) {
+        super(application);
         initData();
     }
     private void initData(){

@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
 import com.yollpoll.framework.base.BaseActivity;
+import com.yollpoll.framework.base.BaseApplication;
 import com.yollpoll.myframework.R;
 import com.yollpoll.myframework.databinding.ActivityDatabindingTestBinding;
 
@@ -25,7 +26,7 @@ public class DataBindingTestActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityDatabindingTestBinding=DataBindingUtil.setContentView(this, R.layout.activity_databinding_test);
-        viewModule=new DataBindingViewModel();
+        viewModule=new DataBindingViewModel(BaseApplication.getINSTANCE());
         activityDatabindingTestBinding.setBean(viewModule.testDatabindingModel);
     }
 }
