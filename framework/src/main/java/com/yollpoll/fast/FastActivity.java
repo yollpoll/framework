@@ -9,6 +9,7 @@ import com.yollpoll.fast.bean.ToastBean;
 import com.yollpoll.framework.base.BaseActivity;
 import com.yollpoll.framework.base.BaseViewModel;
 import com.yollpoll.framework.utils.ToastUtil;
+import com.yollpoll.framework.widgets.LoadingDialog;
 
 /**
  * Created by spq on 2021/2/13
@@ -21,13 +22,36 @@ public abstract class FastActivity<BIND extends ViewDataBinding, VM extends Fast
     }
 
     private void initLD() {
-        mViewModel.getToastLD().observe(this, toastBean -> {
-            if (toastBean.getDuration() == ToastBean.Duration.SHORT) {
-                ToastUtil.showShortToast(toastBean.getMessage());
-            } else if (toastBean.getDuration() == ToastBean.Duration.LONG) {
-                ToastUtil.showLongToast(toastBean.getMessage());
+        mViewModel.getToastLD().observe(this, this::showToast
+        );
+        mViewModel.getLoadingLD().observe(this, show -> {
+            if (show) {
+                showLoading();
+            } else {
+                hideLoading();
             }
         });
+        mViewModel.getFinishLD().observe(this, finish -> {
+            if (finish) {
+                getContext().finish();
+            }
+        });
+    }
+
+    public void showLoading() {
+        LoadingDialog.Companion.showLoading(this);
+    }
+
+    public void hideLoading() {
+        LoadingDialog.Companion.hide();
+    }
+
+    protected void showToast(ToastBean toastBean) {
+        if (toastBean.getDuration() == ToastBean.Duration.LONG) {
+            ToastUtil.showLongToast(toastBean.getMessage());
+        } else {
+            ToastUtil.showShortToast(toastBean.getMessage());
+        }
     }
 
 }

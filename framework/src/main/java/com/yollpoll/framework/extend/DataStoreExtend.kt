@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
+import com.yollpoll.fast.FastViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
@@ -134,4 +135,12 @@ suspend fun Context.putDouble(key: String, value: Double) {
     this.dataStore.edit { settings ->
         settings[keyBean] = value
     }
+}
+
+suspend fun Context.saveBean(key: String, value: Any) {
+    this.putString(key, value.toJson())
+}
+
+suspend fun <T> Context.getBean(key: String, clazz: Class<T>): T? {
+    return this.getString(key, "").toJsonBean(clazz)
 }

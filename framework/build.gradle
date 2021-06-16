@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 configurations {
     all {
         exclude module: 'httpclient'
@@ -41,74 +43,8 @@ android {
     }
 }
 
-//publishing {
-//    publications {
-//        maven(MavenPublication) {
-//            groupId 'io.github.yollpoll'
-//            //You can either define these here or get them from project conf elsewhere
-//            artifactId 'framework'
-//            version '0.0.1-SNAPSHOT'
-//            artifact "$buildDir/outputs/aar/framework-release.aar"
-//            //aar artifact you want to publish
-//            // generate pom nodes for dependencies
-//            pom.withXml {
-////                name = 'framework'
-////                packaging 'aar'
-//                description = 'my android framework'
-//                url = 'https://github.com/yollpoll/framework'
-//                properties = [
-//                        myProp: "value",
-//                        "prop.with.dots": "anotherValue"
-//                ]
-//                licenses {
-//                    license {
-//                        name = 'The Apache License, Version 2.0'
-//                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-//                    }
-//                }
-//                developers {
-//                    developer {
-//                        id = 'yolloll'
-//                        name = 'pengqi.song'
-//                        email = '403716879@qq.com'
-//                    }
-//                }
-//                scm {
-//                    connection = 'scm:git:https://github.com/yollpoll/framework.git'
-//                    developerConnection = 'scm:git:https://github.com/yollpoll/framework.git'
-//                    url = 'https://github.com/yollpoll/framework'
-//                }
-//
-//                def dependenciesNode = asNode().appendNode('dependencies')
-//                configurations.implementation.allDependencies.each { dependency ->
-//                    if ("unspecified" != dependenciesNode.name && "unspecified" != dependency.name) {
-//                        def dependencyNode = dependenciesNode.appendNode('dependency')
-//                        dependencyNode.appendNode('groupId', dependency.group)
-//                        dependencyNode.appendNode('artifactId', dependency.name)
-//                        dependencyNode.appendNode('version', dependency.version)
-//                    }
-//                }
-//
-//            }
-//        }
-//    } //publish to filesystem repo
-//    repositories {
-//        maven {
-//            credentials {
-//                username 'yollpoll' // 仓库发布用户名
-//                password '777861@Ksxz`' // 仓库发布用户密码
-//            }
-//            url "https://s01.oss.sonatype.org"
-////            url "$buildDir/repo"
-//        }
-//        maven {
-//            name "local"
-//            url "$buildDir/repo"
-//        }
-//    }
-//}
-
 def lifecycle_version = "2.2.0"
+def room_version = "2.3.0"
 def arch_version = "2.1.0"
 def ktx_version="2.3.1"//官方kotlin扩展库版本
 
@@ -135,6 +71,14 @@ dependencies {
     implementation "androidx.core:core-ktx:1.3.2"
 
 
+//    implementation "androidx.room:room-runtime:$room_version"
+//    kapt "androidx.room:room-compiler:$room_version"
+//
+//    // optional - Kotlin Extensions and Coroutines support for Room
+//    implementation "androidx.room:room-ktx:$room_version"
+//
+//    // optional - Test helpers
+//    testImplementation "androidx.room:room-testing:$room_version"
 
 
     // ViewModel
@@ -181,6 +125,11 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:4.9.0'
     api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
+    //json解析库Moshi
+    api 'com.squareup.moshi:moshi-kotlin:1.8.0'
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
+    api "com.squareup.retrofit2:converter-moshi:2.7.1"
+
 
     //DataStore Proto DataStore
     api "androidx.datastore:datastore:1.0.0-alpha08"
@@ -202,7 +151,10 @@ dependencies {
     api "androidx.datastore:datastore-preferences-core:1.0.0-alpha08"
 
     /*paging start*/
-    def paging_version = "2.1.2"
+//    def paging_version = "2.1.2"
+
+    def paging_version = "3.0.0-rc01"
+
     api "androidx.paging:paging-runtime-ktx:$paging_version"
     // For Kotlin use paging-runtime-ktx
     // alternatively - without Android dependencies for testing
@@ -211,6 +163,25 @@ dependencies {
     // optional - RxJava support
     api "androidx.paging:paging-rxjava2-ktx:$paging_version"
     // For Kotlin use paging-rxjava2-ktx
+
+
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    // alternatively - without Android dependencies for tests
+    testImplementation "androidx.paging:paging-common:$paging_version"
+
+    // optional - RxJava2 support
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+
+    // optional - RxJava3 support
+    implementation "androidx.paging:paging-rxjava3:$paging_version"
+
+    // optional - Guava ListenableFuture support
+    implementation "androidx.paging:paging-guava:$paging_version"
+
+    // Jetpack Compose Integration
+    implementation "androidx.paging:paging-compose:1.0.0-alpha08"
+
     /*paging end*/
 
 
@@ -219,10 +190,17 @@ dependencies {
     api "androidx.lifecycle:lifecycle-runtime-ktx:$ktx_version"
     api "androidx.lifecycle:lifecycle-livedata-ktx:$ktx_version"
 
+    //本地注解
     api('io.github.yollpoll:annotation:0.0.1') {
         changing = true
         transitive = true
     }
+
+
+
+    //第三方控件
+    //loading
+    implementation 'com.wang.avi:library:2.1.3'
 
 }
 repositories {
@@ -231,6 +209,6 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"        //项目包名
     PUBLISH_ARTIFACT_ID = 'framework'            //项目名
-    PUBLISH_VERSION = "0.0.2"                //版本号
+    PUBLISH_VERSION = "0.0.3"                //版本号
 }
 apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

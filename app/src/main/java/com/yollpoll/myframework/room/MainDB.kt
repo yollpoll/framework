@@ -3,15 +3,19 @@ package com.yollpoll.myframework.room
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteOpenHelper
 import com.yollpoll.framework.base.BaseApplication
+import com.yollpoll.myframework.paging.PagingItem
 import com.yollpoll.myframework.ui.pagingdemo.DataItem
 import com.yollpoll.myframework.ui.pagingdemo.PagingVM
 
 /**
  * Created by spq on 2021/1/20
  */
-@Database(entities = [DataItem::class], version = 1)
+@Database(entities = [DataItem::class, PagingItem::class], version = 1)
 abstract class MainDB : RoomDatabase() {
     abstract fun getDataItemDao(): DataItemDao
+
+    //    abstract fun getPaging3Dao(): Paging3Dao
+    abstract fun paging3Dao(): Paging3Dao
 
     companion object {
         @Volatile

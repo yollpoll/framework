@@ -17,6 +17,9 @@
 
         </activity>
         <activity android:name=".KotlinDemoActivity">
+
+        </activity>
+        <activity android:name=".paging.Paging3Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,23 +2,22 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
             name="view"
-            type="com.yollpoll.myframework.KotlinDemoActivity" />
-
+            type="com.yollpoll.myframework.paging.Paging3Activity" />
         <variable
             name="viewModel"
-            type="com.yollpoll.myframework.vm.KotlinViewModel" />
+            type="com.yollpoll.myframework.paging.Paging3ViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_paging"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_list"
+            />
+
     </RelativeLayout>
 </layout>
