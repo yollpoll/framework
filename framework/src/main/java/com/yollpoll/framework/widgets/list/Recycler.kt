@@ -18,7 +18,9 @@ import androidx.recyclerview.widget.RecyclerView
  * Created by spq on 2021/4/29
  */
 
+/****************************************基于paging2.0的adapter（舍弃）start****************************************/
 /**
+ * paging2.0
  * 基础抽象类实现类
  * @param T
  * @property layoutId Int
@@ -26,13 +28,16 @@ import androidx.recyclerview.widget.RecyclerView
  * @property placeHolder Boolean
  * @constructor
  */
-class MyPageListAdapter<T:Any>(
-        private val layoutId: Int,
-        private val variableId: Int? = null,
-        private val placeHolder: Boolean = false,
-        callBack: DiffUtil.ItemCallback<T>) : BasePageListAdapter<T>(layoutId, variableId, placeHolder, callBack)
+@Deprecated("基于paging2.0，使用最新的BasePagingDataAdapter")
+class MyPageListAdapter<T : Any>(
+    private val layoutId: Int,
+    private val variableId: Int? = null,
+    private val placeHolder: Boolean = false,
+    callBack: DiffUtil.ItemCallback<T>
+) : BasePageListAdapter<T>(layoutId, variableId, placeHolder, callBack)
 
 /**
+ * paging2.0
  * 基于PagedList的baseAdapter
  * @param T 数据类型
  * @property layoutId Int 布局文件
@@ -40,20 +45,22 @@ class MyPageListAdapter<T:Any>(
  * @property mDiffer AsyncPagedListDiffer<T> diffUtil回调
  * @param placeHolder 是否采用占位显示
  */
-abstract class BasePageListAdapter<T:Any>(
-        private val layoutId: Int,
-        private val variableId: Int? = null,
-        private val placeHolder: Boolean = false,
-        callBack: DiffUtil.ItemCallback<T>) : PagedListAdapter<T, BaseViewHolder<T>>(callBack) {
+@Deprecated("基于paging2.0，使用最新的BasePagingDataAdapter")
+abstract class BasePageListAdapter<T : Any>(
+    private val layoutId: Int,
+    private val variableId: Int? = null,
+    private val placeHolder: Boolean = false,
+    callBack: DiffUtil.ItemCallback<T>
+) : PagedListAdapter<T, BaseViewHolder<T>>(callBack) {
 
     lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T> {
         val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                LayoutInflater.from(parent.context),
-                layoutId,
-                parent,
-                false
+            LayoutInflater.from(parent.context),
+            layoutId,
+            parent,
+            false
         )
         context = parent.context
         return BaseViewHolder<T>(binding, variableId)
@@ -69,6 +76,27 @@ abstract class BasePageListAdapter<T:Any>(
     }
 }
 
+/****************************************基于paging2.0的adapter end****************************************/
+
+
+abstract class DiffAdapter<T>(layoutId: Int, mData: List<T>) :
+    BaseAdapter<T>(layoutId, mData) {
+
+    fun submit(list: List<T>) {
+        val diffResult = DiffUtil.calculateDiff(object : PositionDiffCallback<T>(mData, list) {
+            override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return getItemViewType(oldItemPosition) == getItemViewType(newItemPosition)
+            }
+
+            override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+                return mData[oldItemPosition] == list[newItemPosition]
+            }
+
+        })
+        diffResult.dispatchUpdatesTo(this)
+    }
+}
+
 /**
  * 基于普通list的adapter
  * @param MODEL 数据类型
@@ -76,16 +104,17 @@ abstract class BasePageListAdapter<T:Any>(
  * @property mData ArrayList<MODEL> 列表数据
  * @property mContext Context context
  */
-abstract class BaseAdapter<MODEL>(val layoutId: Int, val mData: ArrayList<MODEL>) : RecyclerView.Adapter<BaseViewHolder<MODEL>>() {
+abstract class BaseAdapter<MODEL>(private val layoutId: Int, protected val mData: List<MODEL>) :
+    RecyclerView.Adapter<BaseViewHolder<MODEL>>() {
 
     lateinit var mContext: Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<MODEL> {
         mContext = parent.context
         val binding = DataBindingUtil.inflate<ViewDataBinding>(
-                LayoutInflater.from(parent.context),
-                layoutId,
-                parent,
-                false
+            LayoutInflater.from(parent.context),
+            layoutId,
+            parent,
+            false
         )
         return BaseViewHolder(binding, null)
     }
@@ -102,7 +131,7 @@ abstract class BaseAdapter<MODEL>(val layoutId: Int, val mData: ArrayList<MODEL>
  * @property variableId Int? T对应的BR_id
  */
 open class BaseViewHolder<T>(val binding: ViewDataBinding, val variableId: Int?) :
-        RecyclerView.ViewHolder(binding.root) {
+    RecyclerView.ViewHolder(binding.root) {
 
     fun bind(t: T) {
         variableId?.let {

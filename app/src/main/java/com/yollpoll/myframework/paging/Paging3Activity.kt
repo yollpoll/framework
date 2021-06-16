@@ -2,13 +2,11 @@ package com.yollpoll.myframework.paging
 
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yollpoll.fast.FastActivity
 import com.yollpoll.framework.annotation.ContentView
 import com.yollpoll.framework.annotation.ViewModel
-import com.yollpoll.framework.log.LogUtils
-import com.yollpoll.framework.utils.ToastUtil
+import com.yollpoll.framework.widgets.list.BasePagingDataAdapter
 import com.yollpoll.myframework.BR
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.ActivityPaging3Binding
@@ -22,21 +20,11 @@ import kotlinx.coroutines.launch
 @ContentView(R.layout.activity_paging3)
 @ViewModel(Paging3ViewModel::class)
 class Paging3Activity : FastActivity<ActivityPaging3Binding, Paging3ViewModel>() {
+    private val adapter =
+        BasePagingDataAdapter<PagingItem>(
+            R.layout.item_paging3, BR.bean, true
+        ) { old, new -> old.id == new.id }
 
-    private val adapter = MyPagingDataAdapter(
-            R.layout.item_paging3,
-            BR.bean,
-            true,
-            object : DiffUtil.ItemCallback<PagingItem>() {
-
-                override fun areItemsTheSame(oldItem: PagingItem, newItem: PagingItem): Boolean {
-                    return oldItem.id == newItem.id
-                }
-
-                override fun areContentsTheSame(oldItem: PagingItem, newItem: PagingItem): Boolean {
-                    return oldItem == newItem
-                }
-            })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

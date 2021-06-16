@@ -13,10 +13,12 @@ import com.yollpoll.myframework.R
 /**
  * Created by spq on 2021/5/11
  */
-class MyPagingDataAdapter(private val layoutId: Int,
-                          private val variableId: Int?,
-                          private val placeHolder: Boolean = false,
-                          diffCallback: DiffUtil.ItemCallback<PagingItem>)
+class MyPagingDataAdapter(
+    private val layoutId: Int,
+    private val variableId: Int?,
+    private val placeHolder: Boolean = false,
+    diffCallback: DiffUtil.ItemCallback<PagingItem>
+)
 
     : PagingDataAdapter<PagingItem, BaseViewHolder<PagingItem>>(diffCallback) {
 
@@ -33,7 +35,12 @@ class MyPagingDataAdapter(private val layoutId: Int,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<PagingItem> {
         context = parent.context
-        val binding = DataBindingUtil.inflate<ViewDataBinding>(LayoutInflater.from(context), layoutId, parent, false)
+        val binding = DataBindingUtil.inflate<ViewDataBinding>(
+            LayoutInflater.from(context),
+            layoutId,
+            parent,
+            false
+        )
         return BaseViewHolder(binding, variableId)
     }
 }

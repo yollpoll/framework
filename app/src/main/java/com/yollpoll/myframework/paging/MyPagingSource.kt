@@ -11,7 +11,11 @@ import java.lang.Exception
  * Created by spq on 2021/5/11
  */
 @Entity
-data class PagingItem(var name: String, @PrimaryKey(autoGenerate = true) var id: Int, var content: String)
+data class PagingItem(
+    var name: String,
+    @PrimaryKey(autoGenerate = true) var id: Int,
+    var content: String
+)
 
 private const val START_INDEX = 0;
 
@@ -31,6 +35,11 @@ class MyPagingSource : PagingSource<Int, PagingItem>() {
         }
     }
 
+    //返回一个LoadResult
+    //如果请求失败，则返回LoadResult.Error
+    //如果请求成功，返回loadResult.Page
+    //page中需要传入数据内容的list，前一个key、后一个key
+    //paging每次加载都会传递key给下一次load
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PagingItem> {
         val pos = params.key ?: START_INDEX
         val startIndex = pos * params.loadSize + 1
@@ -39,9 +48,10 @@ class MyPagingSource : PagingSource<Int, PagingItem>() {
         return try {
             val list = Paging3Repository.getData(pos, params.loadSize)
             LoadResult.Page<Int, PagingItem>(
-                    list,
-                    if (pos <= START_INDEX) null else pos - 1,
-                    if (list.isNullOrEmpty()) null else pos + 1)
+                list,
+                if (pos <= START_INDEX) null else pos - 1,//上一个key
+                if (list.isNullOrEmpty()) null else pos + 1
+            )//下一个key
         } catch (e: Exception) {
             LoadResult.Error<Int, PagingItem>(e)
         }
