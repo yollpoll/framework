@@ -2,6 +2,7 @@ package com.yollpoll.myframework.paging
 
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yollpoll.fast.FastActivity
 import com.yollpoll.framework.annotation.ContentView
@@ -11,7 +12,9 @@ import com.yollpoll.myframework.BR
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.ActivityPaging3Binding
 import kotlinx.android.synthetic.main.activity_paging3.*
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 /**
@@ -36,6 +39,7 @@ class Paging3Activity : FastActivity<ActivityPaging3Binding, Paging3ViewModel>()
         // Activities can use lifecycleScope directly, but Fragments should instead use
         // viewLifecycleOwner.lifecycleScope.
         lifecycleScope.launch {
+
             mViewModel.flow.collectLatest {
                 //监听流
                 adapter.submitData(it)

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.yollpoll.framework.annotation.handler.AnnotationHandler;
 import com.yollpoll.framework.annotation.handler.FieldAnnotationHandler;
@@ -23,7 +24,7 @@ import com.yollpoll.framework.utils.ToastUtil;
 /**
  * Created by spq on 2020-06-02
  */
-public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity implements IBaseView<BIND, VM> , RequestPermissionListener {
+public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends BaseViewModel> extends AppCompatActivity implements IBaseView<BIND, VM>, RequestPermissionListener {
     private static final String TAG = "BaseActivity";
     protected VM mViewModel;
     protected BIND mDataBinding;
@@ -36,7 +37,7 @@ public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends Base
         initMVVM();
         initFieldAnnotation();
         initMethodAnnotation();
-        mPermissionTool= PermissionHandler.handlePermission(this);
+        mPermissionTool = PermissionHandler.handlePermission(this);
     }
 
 
@@ -44,7 +45,7 @@ public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends Base
         getViewModel();
         getViewDataBinding();
         initDataBinding();
-        if(null!=mViewModel){
+        if (null != mViewModel) {
             PreExtraAnnotationHandler.handlePreExecute(this);
         }
     }
@@ -84,7 +85,12 @@ public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends Base
     @Override
     public VM getViewModel() {
         if (null == mViewModel) {
-            mViewModel= (VM) new ViewModelProvider(this,new ViewModelProvider.AndroidViewModelFactory(BaseApplication.getINSTANCE())).get(AnnotationHandler.getViewModelClass(this));
+            ViewModelStoreOwner owner = this;
+            ViewModelProvider.AndroidViewModelFactory factory = new ViewModelProvider.AndroidViewModelFactory(BaseApplication.getINSTANCE());
+            Class clz = AnnotationHandler.getViewModelClass(this);
+            mViewModel = (VM) new ViewModelProvider(owner, factory).get(clz);
+
+//            mViewModel= (VM) new ViewModelProvider(this,new ViewModelProvider.AndroidViewModelFactory(BaseApplication.getINSTANCE())).get(AnnotationHandler.getViewModelClass(this));
 //            mViewModel = (VM) new ViewModelProvider(this).get(AnnotationHandler.getViewModelClass(this));
         }
         return mViewModel;
@@ -127,7 +133,7 @@ public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends Base
 
     @Override
     public void onPermissionAllowed(String[] permissions) {
-        ToastUtil.showLongToast("已经授权:"+permissions[0]);
+        ToastUtil.showLongToast("已经授权:" + permissions[0]);
     }
 
     @Override

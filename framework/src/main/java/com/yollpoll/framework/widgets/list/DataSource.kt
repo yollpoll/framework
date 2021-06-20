@@ -13,8 +13,12 @@ import androidx.paging.PositionalDataSource
  * 2.PageKeyedDataSource 通过page参数加载
  * 3.PositionalDataSource 本地数据库根据position加载数据
  */
-class PageDataSource<T:Any> : PageKeyedDataSource<Int, T>() {
-    override fun loadInitial(params: LoadInitialParams<Int>, callback: LoadInitialCallback<Int, T>) {
+@Deprecated("用3.0的 PageSource")
+class PageDataSource<T : Any> : PageKeyedDataSource<Int, T>() {
+    override fun loadInitial(
+        params: LoadInitialParams<Int>,
+        callback: LoadInitialCallback<Int, T>
+    ) {
 
     }
 
@@ -28,7 +32,8 @@ class PageDataSource<T:Any> : PageKeyedDataSource<Int, T>() {
 
 }
 
-class PageSourceFactor<T:Any> : DataSource.Factory<Int, T>() {
+@Deprecated("use paging version 3.0")
+class PageSourceFactor<T : Any> : DataSource.Factory<Int, T>() {
     val sourceLiveData = MutableLiveData<PageDataSource<T>>()
     var pageDataSource: PageDataSource<T>? = null
     override fun create(): DataSource<Int, T> {

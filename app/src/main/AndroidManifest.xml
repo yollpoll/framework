@@ -20,11 +20,11 @@
 
         </activity>
         <activity android:name=".paging.Paging3Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <service
@@ -36,6 +36,13 @@
         <activity android:name=".ui.lifecycledemo.LifecycleActivity" />
         <activity android:name=".ui.livedatademo.LiveDataActivity" />
         <activity android:name=".ui.pagingdemo.PagingDemoActivity" />
+        <activity android:name=".ui.test.KTTestactivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
