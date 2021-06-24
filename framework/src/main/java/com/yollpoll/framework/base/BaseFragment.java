@@ -13,6 +13,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.yollpoll.framework.annotation.ViewModel;
 import com.yollpoll.framework.annotation.handler.AnnotationHandler;
 import com.yollpoll.framework.annotation.handler.FieldAnnotationHandler;
 import com.yollpoll.framework.annotation.handler.MethodAnnotationHandler;
@@ -24,7 +25,7 @@ import com.yollpoll.framework.permission.RequestPermissionListener;
 /**
  * Created by spq on 2021/2/13
  */
-public abstract class BaseFragment<BIND extends ViewDataBinding, VM extends BaseViewModel> extends Fragment implements IBaseView<BIND, VM>,RequestPermissionListener {
+public abstract class BaseFragment<BIND extends ViewDataBinding, VM extends BaseViewModel> extends Fragment implements IBaseView<BIND, VM>, RequestPermissionListener {
     private static final String TAG = "BaseFragment";
     protected VM mViewModel;
     protected BIND mDataBinding;
@@ -90,7 +91,8 @@ public abstract class BaseFragment<BIND extends ViewDataBinding, VM extends Base
     @Override
     public VM getViewModel() {
         if (null == mViewModel) {
-            mViewModel = (VM) new ViewModelProvider(this).get(AnnotationHandler.getViewModelClass(this));
+            mViewModel = (VM) new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getActivity().getApplication())).get(AnnotationHandler.getViewModelClass(this));
+//            mViewModel = (VM) new ViewModelProvider(this).get(AnnotationHandler.getViewModelClass(this));
         }
         return mViewModel;
     }

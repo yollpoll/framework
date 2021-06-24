@@ -9,6 +9,7 @@ ext["signing.secretKeyRingFile"] = ''
 ext["ossrhUsername"] = ''
 ext["ossrhPassword"] = ''
 
+
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
     from javadoc
@@ -144,3 +145,5 @@ javadoc {
     options.encoding = "UTF-8"
     options.charSet = "UTF-8"
 }
+//禁止javadoc生成，不推荐，但是我找不到办法解决javadoc生成失败的原因
+tasks.getByPath(":annotationProcessor:javadoc").enabled = false

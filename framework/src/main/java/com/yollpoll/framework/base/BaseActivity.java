@@ -86,7 +86,7 @@ public abstract class BaseActivity<BIND extends ViewDataBinding, VM extends Base
     public VM getViewModel() {
         if (null == mViewModel) {
             ViewModelStoreOwner owner = this;
-            ViewModelProvider.AndroidViewModelFactory factory = new ViewModelProvider.AndroidViewModelFactory(BaseApplication.getINSTANCE());
+            ViewModelProvider.AndroidViewModelFactory factory = new ViewModelProvider.AndroidViewModelFactory(getApplication());
             Class clz = AnnotationHandler.getViewModelClass(this);
             mViewModel = (VM) new ViewModelProvider(owner, factory).get(clz);
 

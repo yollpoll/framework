@@ -92,7 +92,7 @@ dependencies {
     api "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
     // Annotation processor
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     // alternately - if using Java8, use the following instead of lifecycle-compiler
     api "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
 
@@ -209,6 +209,7 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"        //项目包名
     PUBLISH_ARTIFACT_ID = 'framework'            //项目名
-    PUBLISH_VERSION = "0.0.3"                //版本号
+    PUBLISH_VERSION = "0.0.5"                //版本号
+//    PUBLISH_VERSION = "-SNAPSHOT"                //快照
 }
 apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

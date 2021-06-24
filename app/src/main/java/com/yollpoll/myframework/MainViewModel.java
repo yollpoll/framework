@@ -8,6 +8,7 @@ import com.yollpoll.fast.FastViewModel;
 import com.yollpoll.framework.annotation.PreExecute;
 import com.yollpoll.framework.mvvm.bindingwrapper.command.BindingAction;
 import com.yollpoll.framework.mvvm.bindingwrapper.command.BindingCommand;
+import com.yollpoll.myframework.ui.test.MR;
 
 /**
  * Created by spq on 2021/2/13
