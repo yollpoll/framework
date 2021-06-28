@@ -16,7 +16,7 @@ class RetrofitFactory(intercept: RetrofitIntercept) {
         intercept.okHttpClient(builder)
         intercept.retrofitBuilder(retrofitBuilder)
 
-        retrofit = Retrofit.Builder()
+        retrofit = retrofitBuilder
             .baseUrl(intercept.baseUrl())
             .addConverterFactory(GsonConverterFactory.create())
             .client(builder.build())

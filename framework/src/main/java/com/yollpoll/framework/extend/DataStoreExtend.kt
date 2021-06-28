@@ -5,6 +5,8 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import com.yollpoll.fast.FastViewModel
+import com.yollpoll.framework.base.BaseApplication
+import com.yollpoll.framework.utils.AppUtils
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.first
@@ -14,15 +16,16 @@ import kotlinx.coroutines.flow.map
  * Created by spq on 2021/4/27
  * DataStore对context的拓展,单独放在这个文件
  */
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+val APP_ID = AppUtils.getPackageName(BaseApplication.getINSTANCE())
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = APP_ID ?: "setting")
 
 fun Context.getIntWithFLow(key: String, default: Int): Flow<Int> {
     val keyBean = intPreferencesKey(key)
     return dataStore.data
-            .map { preferences ->
-                // No type safety.
-                preferences[keyBean] ?: default
-            }
+        .map { preferences ->
+            // No type safety.
+            preferences[keyBean] ?: default
+        }
 }
 
 suspend fun Context.getInt(key: String, default: Int): Int {
@@ -39,10 +42,10 @@ suspend fun Context.putInt(key: String, value: Int) {
 fun Context.getStringWithFLow(key: String, default: String): Flow<String> {
     val keyBean = stringPreferencesKey(key)
     return dataStore.data
-            .map { preferences ->
-                // No type safety.
-                preferences[keyBean] ?: default
-            }
+        .map { preferences ->
+            // No type safety.
+            preferences[keyBean] ?: default
+        }
 }
 
 suspend fun Context.getString(key: String, default: String): String {
@@ -60,10 +63,10 @@ suspend fun Context.putString(key: String, value: String) {
 fun Context.getBooleanWithFLow(key: String, default: Boolean): Flow<Boolean> {
     val keyBean = booleanPreferencesKey(key)
     return dataStore.data
-            .map { preferences ->
-                // No type safety.
-                preferences[keyBean] ?: default
-            }
+        .map { preferences ->
+            // No type safety.
+            preferences[keyBean] ?: default
+        }
 }
 
 suspend fun Context.getBoolean(key: String, default: Boolean): Boolean {
@@ -80,10 +83,10 @@ suspend fun Context.putBoolean(key: String, value: Boolean) {
 fun Context.getLongWithFLow(key: String, default: Long): Flow<Long> {
     val keyBean = longPreferencesKey(key)
     return dataStore.data
-            .map { preferences ->
-                // No type safety.
-                preferences[keyBean] ?: default
-            }
+        .map { preferences ->
+            // No type safety.
+            preferences[keyBean] ?: default
+        }
 }
 
 suspend fun Context.getLong(key: String, default: Long): Long {
@@ -100,10 +103,10 @@ suspend fun Context.putLong(key: String, value: Long) {
 fun Context.getFloatWithFLow(key: String, default: Float): Flow<Float> {
     val keyBean = floatPreferencesKey(key)
     return dataStore.data
-            .map { preferences ->
-                // No type safety.
-                preferences[keyBean] ?: default
-            }
+        .map { preferences ->
+            // No type safety.
+            preferences[keyBean] ?: default
+        }
 }
 
 suspend fun Context.getFloat(key: String, default: Float): Float {
@@ -120,10 +123,10 @@ suspend fun Context.putFloat(key: String, value: Float) {
 fun Context.getDoubleWithFLow(key: String, default: Double): Flow<Double> {
     val keyBean = doublePreferencesKey(key)
     return dataStore.data
-            .map { preferences ->
-                // No type safety.
-                preferences[keyBean] ?: default
-            }
+        .map { preferences ->
+            // No type safety.
+            preferences[keyBean] ?: default
+        }
 }
 
 suspend fun Context.getDouble(key: String, default: Double): Double {
