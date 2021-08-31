@@ -127,7 +127,7 @@ dependencies {
 
     //json解析库Moshi
     api 'com.squareup.moshi:moshi-kotlin:1.8.0'
-    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
+//    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
     api "com.squareup.retrofit2:converter-moshi:2.7.1"
 
 
@@ -209,7 +209,7 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"        //项目包名
     PUBLISH_ARTIFACT_ID = 'framework'            //项目名
-    PUBLISH_VERSION = "0.0.5"                //版本号
-//    PUBLISH_VERSION = "-SNAPSHOT"                //快照
+    PUBLISH_VERSION = "0.0.7"                //版本号
+//    PUBLISH_VERSION = "1.0.0-SNAPSHOT"                //快照
 }
 apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

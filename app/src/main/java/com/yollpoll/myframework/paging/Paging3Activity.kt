@@ -11,7 +11,6 @@ import com.yollpoll.framework.widgets.list.BasePagingDataAdapter
 import com.yollpoll.myframework.BR
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.ActivityPaging3Binding
-import kotlinx.android.synthetic.main.activity_paging3.*
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.onStart
@@ -53,8 +52,8 @@ class Paging3Activity : FastActivity<ActivityPaging3Binding, Paging3ViewModel>()
     }
 
     private fun init() {
-        rv_list.layoutManager = LinearLayoutManager(this)
-        rv_list.adapter = adapter
+        mDataBinding.rvList.layoutManager = LinearLayoutManager(this)
+        mDataBinding.rvList.adapter = adapter
     }
 
 }

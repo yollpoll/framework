@@ -24,7 +24,6 @@ import com.yollpoll.framework.utils.ToastUtil
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.ActivityPagingBinding
 import com.yollpoll.myframework.databinding.ItemPagingDataBinding
-import kotlinx.android.synthetic.main.activity_paging.*
 private const val TAG = "PagingDemoActivity"
 
 /**
@@ -53,8 +52,8 @@ public class PagingDemoActivity : BaseActivity<ActivityPagingBinding, PagingVM>(
 //        val binding = ActivityPagingBinding.inflate(layoutInflater)
 //        setContentView(binding.root)
 
-        rv_data.adapter = mAdapter
-        rv_data.layoutManager = LinearLayoutManager(this)
+        mDataBinding.rvData.adapter = mAdapter
+        mDataBinding.rvData.layoutManager = LinearLayoutManager(this)
         initLiveData()
         ToastUtil.showLongToast(key)
     }

@@ -37,6 +37,20 @@
         <activity android:name=".ui.livedatademo.LiveDataActivity" />
         <activity android:name=".ui.pagingdemo.PagingDemoActivity" />
         <activity android:name=".ui.test.KTTestactivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".navigation.HomeActivity">
+<!--                        <intent-filter>-->
+            <!--                            <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                            <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--                        </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.moshi.TestMoshiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

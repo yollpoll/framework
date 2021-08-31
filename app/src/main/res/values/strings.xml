@@ -4,4 +4,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="defaultName">默认文字</string>
+    <string name="exo_download_notification_channel_name">"app"</string>
 </resources>

@@ -97,7 +97,7 @@ publishing {
 //            def snapshotsRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
             // You only need this if you want to publish snapshots, otherwise just set the URL
             // to the release repo directly
-            println("version:"+PUBLISH_VERSION)
+            println("version:" + PUBLISH_VERSION)
             println(PUBLISH_VERSION.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl)
             url = PUBLISH_VERSION.endsWith("SNAPSHOT") ? snapshotsRepoUrl : releasesRepoUrl
 

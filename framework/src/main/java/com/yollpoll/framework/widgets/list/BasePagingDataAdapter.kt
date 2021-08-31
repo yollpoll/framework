@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.DiffUtil
  * @property context Context
  * @constructor 构造方法
  */
-class BasePagingDataAdapter<T : Any>(
+open class BasePagingDataAdapter<T : Any>(
     private val layoutId: Int,
     private val variableId: Int?,
     private val placeHolder: Boolean = false,

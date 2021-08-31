@@ -49,9 +49,25 @@ suspend fun FastViewModel.getDoubleByDataStore(key: String, default: Double): Do
 }
 
 suspend fun FastViewModel.saveBean(key: String, value: Any) {
-    saveStringToDataStore(key, value.toJson())
+    getApplication<BaseApplication>().saveBean(key, value)
 }
 
-suspend fun <T> FastViewModel.getBean(key: String, clazz: Class<T>) {
-    getStringByDataStore(key, "").toJsonBean(clazz)
+suspend inline fun <reified T> FastViewModel.getBean(key: String): T? {
+    return getStringByDataStore(key, "").toJsonBean()
+}
+
+suspend fun FastViewModel.saveList(key: String, value: List<*>) {
+    getApplication<BaseApplication>().saveList(key, value)
+}
+
+suspend inline fun <reified T> FastViewModel.getList(key: String): List<T>? {
+    return getStringByDataStore(key, "").toListBean()
+}
+
+suspend inline fun <reified T, reified K> FastViewModel.saveMap(key: String, value: Map<T, K>) {
+    getApplication<BaseApplication>().saveMap(key, value)
+}
+
+suspend inline fun <reified T, reified K> FastViewModel.getMap(key: String): Map<T, K>? {
+    return getStringByDataStore(key, "").toMapBean()
 }

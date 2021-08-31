@@ -19,7 +19,6 @@ import com.yollpoll.framework.widgets.list.MyPageListAdapter
 import com.yollpoll.myframework.databinding.ActivityKotlinBinding
 import com.yollpoll.myframework.ui.pagingdemo.DataItem
 import com.yollpoll.myframework.vm.KotlinViewModel
-import kotlinx.android.synthetic.main.activity_kotlin.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -47,8 +46,8 @@ class KotlinDemoActivity : FastActivity<ActivityKotlinBinding, KotlinViewModel>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        rv_paging.adapter = mAdapter
-        rv_paging.layoutManager = LinearLayoutManager(this)
+        mDataBinding.rvPaging.adapter = mAdapter
+        mDataBinding.rvPaging.layoutManager = LinearLayoutManager(this)
         mViewModel.list.observe(this, Observer {list->
             mAdapter.submitList(list)
         })

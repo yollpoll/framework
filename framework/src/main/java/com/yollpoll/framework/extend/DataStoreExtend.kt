@@ -144,6 +144,23 @@ suspend fun Context.saveBean(key: String, value: Any) {
     this.putString(key, value.toJson())
 }
 
-suspend fun <T> Context.getBean(key: String, clazz: Class<T>): T? {
-    return this.getString(key, "").toJsonBean(clazz)
+suspend inline fun <reified T> Context.getBean(key: String): T? {
+    return this.getString(key, "").toJsonBean()
+}
+
+
+suspend inline fun <reified T> Context.getList(key: String): List<T>? {
+    return this.getString(key, "").toListBean<T>()
+}
+
+suspend inline fun <reified T> Context.saveList(key: String, value: List<T>) {
+    this.putString(key, value.toListJson())
+}
+
+suspend inline fun <reified T, reified K> Context.getMap(key: String): Map<T, K>? {
+    return this.getString(key, "").toMapBean()
+}
+
+suspend inline fun <reified T, reified K> Context.saveMap(key: String, value: Map<T, K>) {
+    this.putString(key, value.toMapJson())
 }

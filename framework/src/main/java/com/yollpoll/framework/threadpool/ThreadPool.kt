@@ -26,7 +26,7 @@ object ThreadPool {
 
     private var THREAD_POOL_EXECUTOR: ThreadPoolExecutor = getThreadPoolExecutor()
 
-    private fun getThreadPoolExecutor(): ThreadPoolExecutor {
+    public fun getThreadPoolExecutor(): ThreadPoolExecutor {
         return ThreadPoolExecutor(
                 CORE_POOL_SIZE,
                 MAX_POOL_SIZE,

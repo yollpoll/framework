@@ -7,6 +7,7 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.FormatStrategy;
 import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
+import com.yollpoll.framework.utils.AppUtils;
 
 /**
  * Created by spq on 2020-05-20
@@ -14,12 +15,12 @@ import com.orhanobut.logger.PrettyFormatStrategy;
 //todo appId需要一个appCenter去根据不同项目获取，这边暂时写死
 public class LogUtils {
     public static void init(Context context, final boolean isLoggable) {
-        LogUtils.init(context, "appId", isLoggable);
+        LogUtils.init(context, AppUtils.getPackageName(context), isLoggable);
     }
 
     public static void init(Context context, String tag, final boolean isLoggable) {
         if (tag == null || tag.equals("")) {
-            tag = "appId";
+            tag = "yollpoll";
         }
         FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
                 .tag(tag)   // (Optional) Global tag for every log. Default PRETTY_LOGGER
