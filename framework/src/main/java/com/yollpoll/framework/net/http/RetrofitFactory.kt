@@ -22,7 +22,7 @@ class RetrofitFactory(intercept: RetrofitIntercept) {
         retrofit = retrofitBuilder
             .baseUrl(intercept.baseUrl())
             .addConverterFactory(GsonConverterFactory.create())
-            .addConverterFactory(MoshiConverterFactory.create())
+//            .addConverterFactory(MoshiConverterFactory.create())
             .client(okHttpClient)
             .build()
         intercept.retrofit(retrofit)

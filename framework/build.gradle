@@ -179,9 +179,6 @@ dependencies {
     // optional - Guava ListenableFuture support
     implementation "androidx.paging:paging-guava:$paging_version"
 
-    // Jetpack Compose Integration
-    implementation "androidx.paging:paging-compose:1.0.0-alpha08"
-
     /*paging end*/
 
 
@@ -209,7 +206,7 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"        //项目包名
     PUBLISH_ARTIFACT_ID = 'framework'            //项目名
-    PUBLISH_VERSION = "0.0.7"                //版本号
+    PUBLISH_VERSION = "0.0.8"                //版本号
 //    PUBLISH_VERSION = "1.0.0-SNAPSHOT"                //快照
 }
 apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

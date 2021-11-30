@@ -38,7 +38,6 @@ class Paging3Activity : FastActivity<ActivityPaging3Binding, Paging3ViewModel>()
         // Activities can use lifecycleScope directly, but Fragments should instead use
         // viewLifecycleOwner.lifecycleScope.
         lifecycleScope.launch {
-
             mViewModel.flow.collectLatest {
                 //监听流
                 adapter.submitData(it)

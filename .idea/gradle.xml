@@ -15,11 +15,11 @@
             <option value="$PROJECT_DIR$/annotation" />
             <option value="$PROJECT_DIR$/annotationProcessor" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/arch" />
             <option value="$PROJECT_DIR$/framework" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

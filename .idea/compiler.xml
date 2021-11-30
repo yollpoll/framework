@@ -26,6 +26,7 @@
       <module name="annotationCompiler" target="1.7" />
       <module name="annotationProcessor" target="1.7" />
       <module name="MyFramework.app" target="11" />
+      <module name="MyFramework.arch" target="11" />
       <module name="MyFramework.framework" target="11" />
     </bytecodeTargetLevel>
   </component>
