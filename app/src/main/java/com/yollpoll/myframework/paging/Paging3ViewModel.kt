@@ -15,5 +15,4 @@ class Paging3ViewModel(application: Application) : FastViewModel(application) {
     val flow = Pager(PagingConfig(20)) {
         MyPagingSource()
     }.flow.cachedIn(viewModelScope)
-
 }

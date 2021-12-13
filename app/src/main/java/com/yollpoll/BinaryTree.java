@@ -1,6 +1,7 @@
 package com.yollpoll;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.stream.Stream;
 
 /**
  * Created by spq on 2021/10/26
@@ -36,7 +38,24 @@ public class BinaryTree {
         printRes("Solution543", new Solution543().diameterOfBinaryTree(constructTree(1, 2, 3, 4, 5)));
 
         printRes("Solution662", new Solution662_2().widthOfBinaryTree(constructTree(1, 1, 1, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, 1, null, null, 1, 1, null, 1, null, 1, null, 1, null, 1, null)));
-        printRes("Solution687", new Solution687().longestUnivaluePath(constructTree(1,4,5,4,4,5)));
+        printRes("Solution687", new Solution687().longestUnivaluePath(constructTree(1, 4, 5, 4, 4, 5)));
+
+
+        Solution703.test();
+        new Solution889().constructFromPrePost(new int[]{1, 2, 4, 5, 3, 6, 7}, new int[]{4, 5, 2, 6, 7, 3, 1});
+        new Solution894().allPossibleFBT(7);
+        boolean res = new Solution951().flipEquiv(constructTree(1, 2, 3, 4, 5, 6, null, null, null, 7, 8), constructTree(
+                1, 3, 2, null, 6, 4, 5, null, null, null, null, 8, 7
+        ));
+        System.out.println(res);
+
+        boolean res858
+                = new Solution958().isCompleteTree(constructTree(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33));
+        System.out.println("958res:" + res858);
+
+        List<Integer> res971 = new Solution971().flipMatchVoyage(constructTree(1, 2, 3), 1, 3, 2);
+        System.out.println("971:" + res971.size());
+        new Solution988().smallestFromLeaf(constructTree(2, 2, 1, null, 1, 0, null, 0));
     }
 
 
@@ -99,6 +118,7 @@ public class BinaryTree {
     ////////////////////////////////////////////序列化反序列化 start//////////////////////////////////////
     // Encodes a tree to a single string.
     public static String serialize(TreeNode root) {
+        serializeRes = "";
         dfs(root);
         System.out.println("serialize:" + serializeRes);
         return serializeRes;
@@ -486,7 +506,7 @@ public class BinaryTree {
      * 给定一个二叉树，找到最长的路径，这个路径中的每个节点具有相同值。 这条路径可以经过也可以不经过根节点。
      * <p>
      * 注意：两个节点之间的路径长度由它们之间的边数表示。
-     *
+     * <p>
      * 求任意一条路径的问题，往往可以转化成遍历每个节点，以当前节点为顶点的路径问题，故需要2重迭代
      * 内部迭代含义为以当前root节点为顶点的树为路径必经点
      * 有3种情况，left-root-parent为最大路径
@@ -510,33 +530,360 @@ public class BinaryTree {
             if (root == null) {
                 return;
             }
-            int count=dfs(root);
-            if(count>max){
-                max=count;
+            int count = dfs(root);
+            if (count > max) {
+                max = count;
             }
             dfsAll(root.left);
             dfsAll(root.right);
         }
 
         //返回的是以root为根节点，自上到下的最长链
-        public int dfs(TreeNode root){
+        public int dfs(TreeNode root) {
             if (null == root) {
                 return 0;
             }
-            int res1=0,res2=0;
-            int left=dfs(root.left);
-            int right=dfs(root.right);
-            if (root.left != null&&root.left.val == root.val) {
-                res1+=left+1;
+            int res1 = 0, res2 = 0;
+            int left = dfs(root.left);
+            int right = dfs(root.right);
+            if (root.left != null && root.left.val == root.val) {
+                res1 += left + 1;
             }
-            if (root.right != null&&root.right.val == root.val) {
-                res2+=right+1;
+            if (root.right != null && root.right.val == root.val) {
+                res2 += right + 1;
             }
-            if(res1+res2>max){
-                max=res1+res2;
+            if (res1 + res2 > max) {
+                max = res1 + res2;
             }
             return Math.max(res1, res2);
         }
     }
 
+
+    /**
+     * topK问题，建立大根堆
+     * 从k+1开始遍历数组，进行比较操作，如果大于堆顶元素，则替换然后堆化一次
+     */
+    public static class Solution703 {
+        public static int[] heap;
+
+        public static void test() {
+            int k = 3;
+            int[] nums = {4, 5, 8, 2};
+            heap = new int[k];
+            for (int i = 0; i < k; i++) {
+                heap[i] = nums[i];
+            }
+            heap = buildBigHeap(heap);
+            for (int i = k; i < nums.length; i++) {
+                if (nums[i] < heap[0]) {
+                    heap[0] = nums[i];
+                    adjustHeap(0, heap);
+                }
+            }
+            printRes("heap", heap);
+            printRes("heap", add(3));
+            printRes("heap", add(5));
+            printRes("heap", add(10));
+            printRes("heap", add(9));
+            printRes("heap", add(4));
+        }
+
+        private static int add(int k) {
+            if (k < heap[0]) {
+                heap[0] = k;
+                adjustHeap(0, heap);
+            }
+            return heap[0];
+        }
+
+        /**
+         * 建立堆
+         *
+         * @return
+         */
+        public static int[] buildBigHeap(int... num) {
+            int lastIndex = (num.length / 2) - 1;
+            for (int i = lastIndex; i >= 0; i--) {
+                adjustHeap(i, num);
+            }
+            return num;
+        }
+
+
+        /**
+         * 堆化操作
+         *
+         * @param i
+         * @param num
+         * @return
+         */
+        public static int[] adjustHeap(int i, int... num) {
+            if (i >= num.length || i * 2 + 1 >= num.length) {
+                return num;
+            }
+            if (i * 2 + 2 >= num.length) {
+                if (num[i * 2 + 1] > num[i]) {
+                    int temp = num[i];
+                    num[i] = num[i * 2 + 1];
+                    num[i * 2 + 1] = temp;
+                    adjustHeap(i * 2 + 1, num);
+                }
+                return num;
+            }
+            if (num[i * 2 + 1] > num[i * 2 + 2]) {
+                if (num[i * 2 + 1] > num[i]) {
+                    int temp = num[i];
+                    num[i] = num[i * 2 + 1];
+                    num[i * 2 + 1] = temp;
+                    adjustHeap(i * 2 + 1, num);
+                }
+            } else {
+                if (num[i * 2 + 2] > num[i]) {
+                    int temp = num[i];
+                    num[i] = num[i * 2 + 2];
+                    num[i * 2 + 2] = temp;
+                    adjustHeap(i * 2 + 2, num);
+                }
+            }
+            return num;
+        }
+    }
+
+    /**
+     * leetCode889
+     * 根据前序遍历和后续遍历生成树
+     * 通过找到preOrder中的midNode pre(1)在postOrder中的位置，找到左自树的长度
+     */
+    static class Solution889 {
+        public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
+            return createNode(preorder, 0, preorder.length - 1, postorder, 0, postorder.length - 1);
+        }
+
+        public TreeNode createNode(int[] preorder, int preL, int preR, int[] postorder, int postL, int postR) {
+            if (preL > preR) {
+                return null;
+            }
+            if (preL == preR) {
+                return new TreeNode(preorder[preL]);
+            }
+            System.out.println(preL + "_" + preR);
+            int leftVal = preorder[preL + 1];
+            int leftTreeCount = findNumber(postorder, leftVal) - postL;
+            TreeNode root = new TreeNode(preorder[preL]);
+            TreeNode left = createNode(preorder, preL + 1, preL + leftTreeCount + 1, postorder, postL, postL + leftTreeCount);
+            TreeNode right = createNode(preorder, preL + leftTreeCount + 2, preR, postorder, postL + leftTreeCount + 1, postR - 1);
+            root.left = left;
+            root.right = right;
+            return root;
+
+        }
+
+        public int findNumber(int[] array, int target) {
+            for (int i = 0; i < array.length; i++) {
+                if (array[i] == target) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+    }
+
+    /**
+     * leetCode894
+     * 根据节点数生成所有可能的满二叉树
+     * 满二叉树 ：节点只有0个子节点或者2个子节点
+     */
+    static class Solution894 {
+        public List<TreeNode> allPossibleFBT(int n) {
+            return dfs(n);
+        }
+
+        public List<TreeNode> dfs(int n) {
+            List<TreeNode> res = new ArrayList<>();
+            if (n == 1) {
+                res.add(new TreeNode(0));
+                return res;
+            }
+            for (int k = 1; k <= n - 2; k += 2) {
+                List<TreeNode> leftList = dfs(k);
+                List<TreeNode> rightList = dfs(n - 1 - k);
+                for (TreeNode nodeLeft : leftList) {
+                    for (TreeNode nodeRight : rightList) {
+                        TreeNode root = new TreeNode(0);
+                        root.left = nodeLeft;
+                        root.right = nodeRight;
+                        res.add(root);
+                    }
+                }
+            }
+            return res;
+        }
+    }
+
+    /**
+     * leetCode951
+     * 判断翻转二叉树
+     */
+    static class Solution951 {
+        public boolean flipEquiv(TreeNode root1, TreeNode root2) {
+            if (root1 == null && root2 == null) {
+                return true;
+            }
+            if (root1 != null && root2 == null) {
+                return false;
+            }
+            if (root2 != null && root1 == null) {
+                return false;
+            }
+            if (root1.val != root2.val) {
+                return false;
+            } else {
+                return flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left);
+            }
+        }
+    }
+
+    static class Solution958 {
+        public boolean isCompleteTree(TreeNode root) {
+            //层数
+            int deep = dfs(root) - 1;
+            Deque<TreeNode> queue = new LinkedList<>();
+            int level = 0;
+            queue.offer(root);
+            while (!queue.isEmpty()) {
+                Deque<TreeNode> temp = new LinkedList<>();
+                while (!queue.isEmpty()) {
+                    temp.offer(queue.poll());
+                }
+                if (level <= deep - 1) {
+                    //倒数第二层开始所有节点均有两个
+                    if (temp.size() != Math.pow(2, level)) {
+                        return false;
+                    }
+                }
+                if (level == deep - 1) {
+                    boolean end = false;
+                    while (!temp.isEmpty()) {
+                        TreeNode node = temp.poll();
+                        if (end && (node.left != null || node.right != null)) {
+                            return false;
+                        }
+                        if (node.left == null && node.right != null) {
+                            return false;
+                        } else if (node.left != null && node.right == null) {
+                            //存在右节点是null，接下来但凡出现非空的子节点就fasle
+                            end = true;
+                        } else if (node.left == null) {
+                            end = true;
+                        }
+                    }
+                    return true;
+                }
+                while (!temp.isEmpty()) {
+                    TreeNode node = temp.poll();
+                    if (null != node.left) {
+                        queue.offer(node.left);
+                    }
+                    if (null != node.right) {
+                        queue.offer(node.right);
+                    }
+                }
+
+                level++;
+            }
+            return true;
+
+        }
+
+        public int dfs(TreeNode root) {
+            if (null == root) {
+                return 0;
+            }
+            return Math.max(dfs((root.left)), dfs(root.right)) + 1;
+        }
+
+    }
+
+    /**
+     * leetCode971
+     * 给出一个二叉树和一个先序遍历的数组，二叉树能否在翻转的子树的情况下实现遍历结果
+     * 如果可以，返回翻转子树的节点值数组，如果不行，返回[-1]
+     * <p>
+     * <p>
+     * 思路：如果root节点和nums[index]值相同，则比较left和nums[index++]
+     * 如果left和nums[index++]不同，则翻转二叉树,进行下一轮遍历
+     * 如果相同，则按照left->right的顺序遍历
+     * index作全局变量，这样在第二个dfs的时候index会记录到相应位置
+     * 遍历的先后决定了是否翻转二叉树
+     * 注意：如果添加一个-1以后，接下来的解析都成功了，说明只在root节点出现了问题
+     * 但是结果上还是需要返回-1，所以在所有遍历完成以后，检查最后的res数组，看是否存在-1，
+     * （根据代码逻辑，如果存在-1，肯定是第一个，因为每次添加-1都会调用clear）
+     */
+    static class Solution971 {
+        int[] voyage;
+        int index = 0;
+        List<Integer> res = new ArrayList<>();
+
+        public List<Integer> flipMatchVoyage(TreeNode root, int... voyage) {
+            this.voyage = voyage;
+            dfs(root);
+            //检查是否存在-1
+            if (!res.isEmpty() && res.get(0) == -1) {
+                res.clear();
+                res.add(-1);
+            }
+            return res;
+        }
+
+        public void dfs(TreeNode root) {
+            if (null == root) {
+                return;
+            }
+            if (index >= voyage.length) {
+                return;
+            }
+            if (root.val == voyage[index]) {
+                index++;
+            } else {
+                res.clear();
+                res.add(-1);
+            }
+            if (root.left != null && root.left.val != voyage[index]) {
+                res.add(root.val);
+                this.dfs(root.right);
+                this.dfs(root.left);
+            } else {
+                this.dfs(root.left);
+                this.dfs(root.right);
+            }
+
+        }
+    }
+
+    static class Solution988 {
+        String ans="~";
+        public String smallestFromLeaf(TreeNode root) {
+            dfs(root,new StringBuilder());
+            return ans;
+        }
+
+        public void dfs(TreeNode root, StringBuilder sb) {
+            if (null == root) {
+                return;
+            }
+            sb.append(((char) ('a' + root.val)));
+            sb.reverse();
+            String tempRes = sb.toString();
+            if (tempRes.compareTo(ans) < 0) {
+                ans = tempRes;
+            }
+            sb.reverse();
+            dfs(root.left, sb);
+            dfs(root.right, sb);
+            sb.deleteCharAt(sb.length()-1);
+        }
+
+
+    }
 }

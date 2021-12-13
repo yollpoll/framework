@@ -74,6 +74,7 @@ public class OnMessageProcessor extends AbstractProcessor {
         }
 
         mMessage.printMessage(Diagnostic.Kind.NOTE, "num: " + proxy.list.size());
+        mMessage.printMessage(Diagnostic.Kind.NOTE,"packageName: " + proxy.getPackageName());
 
 
         if (proxy.list.size() == 0) {
