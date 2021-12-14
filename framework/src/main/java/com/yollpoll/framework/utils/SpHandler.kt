@@ -2,7 +2,7 @@ package com.yollpoll.framework.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.yollpoll.framework.base.BaseApplication
+import com.yollpoll.arch.base.BaseApplication
 
 /**
  * Created by spq on 2021/5/6

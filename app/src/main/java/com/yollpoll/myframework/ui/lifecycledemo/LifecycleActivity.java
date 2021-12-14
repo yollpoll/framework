@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.yollpoll.framework.base.BaseActivity;
+import com.yollpoll.arch.base.BaseActivity;
 import com.yollpoll.myframework.R;
 
 /**

@@ -6,7 +6,8 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
-import static com.yollpoll.framework.utils.RefUtils.getDeclaredMethods;
+import static com.yollpoll.arch.util.RefUtils.getDeclaredMethods;
+
 
 /**
  * Created by spq on 2021/3/2

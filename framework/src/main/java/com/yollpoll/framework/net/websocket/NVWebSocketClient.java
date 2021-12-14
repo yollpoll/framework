@@ -5,7 +5,7 @@ import com.neovisionaries.ws.client.WebSocketAdapter;
 import com.neovisionaries.ws.client.WebSocketException;
 import com.neovisionaries.ws.client.WebSocketFactory;
 import com.neovisionaries.ws.client.WebSocketFrame;
-import com.yollpoll.framework.log.LogUtils;
+import com.yollpoll.arch.log.LogUtils;
 
 import java.io.IOException;
 import java.net.ServerSocket;

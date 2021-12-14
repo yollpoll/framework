@@ -13,9 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.yollpoll.framework.message.liveeventbus.LiveEventBus;
-import com.yollpoll.framework.message.liveeventbus.ObserverWrapper;
-import com.yollpoll.framework.utils.ToastUtil;
 import com.yollpoll.myframework.R;
 import com.yollpoll.myframework.ui.aidldemo.AIDLTestActivity;
 import com.yollpoll.myframework.ui.databinding.DataBindingTestActivity;

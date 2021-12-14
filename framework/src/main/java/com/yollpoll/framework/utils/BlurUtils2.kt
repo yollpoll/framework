@@ -58,31 +58,31 @@ fun setBlur(fromView: View, toView: View, radius: Float, scaleFactor: Int) {
     fromView.isDrawingCacheEnabled = false
 }
 
-/**
- * 使用piexlCopy复制，在高版本使用
- * @param window Window
- * @param toView View
- */
-@TargetApi(Build.VERSION_CODES.O)
-fun setBlur(window: Window, toView: View) {
-    val bitmap = Bitmap.createBitmap(toView.width, toView.height, Bitmap.Config.ARGB_8888)
-    val rect = Rect()
-    val viewLocationArray = IntArray(2)
-    toView.getLocationOnScreen(viewLocationArray)
-    rect.left = viewLocationArray[0]
-    rect.top = viewLocationArray[1]
-    rect.right = viewLocationArray[0] + toView.width
-    rect.bottom = viewLocationArray[1] + toView.height
-    PixelCopy.request(window, rect, bitmap, object : PixelCopy.OnPixelCopyFinishedListener {
-        override fun onPixelCopyFinished(copyResult: Int) {
-            TODO("Not yet implemented")
-            println("finished")
-            bitmap = scaleBitmap(bitmap, SCALE_FACTOR)
-            bitmap = blurBitmap(toView.context, bitmap, RADIUS)
-            toView.background = BitmapDrawable(bitmap)
-        }
-    }, Handler(Looper.getMainLooper()))
-}
+///**
+// * 使用piexlCopy复制，在高版本使用
+// * @param window Window
+// * @param toView View
+// */
+//@TargetApi(Build.VERSION_CODES.O)
+//fun setBlur(window: Window, toView: View) {
+//    val bitmap = Bitmap.createBitmap(toView.width, toView.height, Bitmap.Config.ARGB_8888)
+//    val rect = Rect()
+//    val viewLocationArray = IntArray(2)
+//    toView.getLocationOnScreen(viewLocationArray)
+//    rect.left = viewLocationArray[0]
+//    rect.top = viewLocationArray[1]
+//    rect.right = viewLocationArray[0] + toView.width
+//    rect.bottom = viewLocationArray[1] + toView.height
+//    PixelCopy.request(window, rect, bitmap, object : PixelCopy.OnPixelCopyFinishedListener {
+//        override fun onPixelCopyFinished(copyResult: Int) {
+//            TODO("Not yet implemented")
+//            println("finished")
+//            bitmap = scaleBitmap(bitmap, SCALE_FACTOR)
+//            bitmap = blurBitmap(toView.context, bitmap, RADIUS)
+//            toView.background = BitmapDrawable(bitmap)
+//        }
+//    }, Handler(Looper.getMainLooper()))
+//}
 
 /**
  * 获取fromview中toview对应位置的截图

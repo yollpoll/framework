@@ -7,12 +7,10 @@ import android.widget.LinearLayout;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.yollpoll.annotation.annotation.MethodReference;
 import com.yollpoll.annotation.annotation.OnMessage;
-import com.yollpoll.fast.FastActivity;
-import com.yollpoll.framework.annotation.ContentView;
-import com.yollpoll.framework.annotation.PermissionAuto;
-import com.yollpoll.framework.annotation.ViewModel;
-import com.yollpoll.framework.base.BaseActivity;
-import com.yollpoll.framework.log.LogUtils;
+import com.yollpoll.arch.annotation.ContentView;
+import com.yollpoll.arch.annotation.PermissionAuto;
+import com.yollpoll.arch.annotation.ViewModel;
+import com.yollpoll.arch.log.LogUtils;
 import com.yollpoll.framework.utils.ToastUtil;
 import com.yollpoll.myframework.databinding.ActivityMainBinding;
 

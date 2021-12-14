@@ -3,13 +3,6 @@
 
     <data>
 
-        <variable
-            name="view"
-            type="com.yollpoll.myframework.ui.test.KTTestactivity" />
-
-        <variable
-            name="viewModel"
-            type="com.yollpoll.myframework.ui.test.KTTestViewModel" />
     </data>
 
     <RelativeLayout

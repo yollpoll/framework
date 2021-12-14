@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.yollpoll.framework.log.LogUtils
 import java.lang.Exception
 
 /**

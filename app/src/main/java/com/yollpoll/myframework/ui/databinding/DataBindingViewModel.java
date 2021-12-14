@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 
 
-import com.yollpoll.fast.FastViewModel;
+import com.yollpoll.framework.fast.FastViewModel;
 import com.yollpoll.myframework.model.TestDatabindingModel;
 
 import java.util.logging.Handler;

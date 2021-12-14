@@ -5,10 +5,10 @@ import android.app.Application
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.navigation.NavigationView
-import com.yollpoll.fast.FastActivity
-import com.yollpoll.fast.FastViewModel
-import com.yollpoll.framework.annotation.ContentView
-import com.yollpoll.framework.annotation.ViewModel
+import com.yollpoll.arch.annotation.ContentView
+import com.yollpoll.arch.annotation.ViewModel
+import com.yollpoll.framework.fast.FastActivity
+import com.yollpoll.framework.fast.FastViewModel
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.ActivityNavigationBinding
 

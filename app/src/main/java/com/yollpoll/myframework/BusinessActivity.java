@@ -2,9 +2,9 @@ package com.yollpoll.myframework;
 
 import androidx.databinding.ViewDataBinding;
 
-import com.yollpoll.fast.FastActivity;
-import com.yollpoll.fast.FastViewModel;
-import com.yollpoll.framework.base.BaseViewModel;
+import com.yollpoll.framework.fast.FastActivity;
+import com.yollpoll.framework.fast.FastViewModel;
+
 
 /**
  * Created by spq on 2021/3/3

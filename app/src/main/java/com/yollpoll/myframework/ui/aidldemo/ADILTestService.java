@@ -9,7 +9,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.yollpoll.framework.log.LogUtils;
+import com.yollpoll.arch.log.LogUtils;
 import com.yollpoll.myframework.IMyAidlInterface;
 import com.yollpoll.myframework.IOnNewMsgListener;
 

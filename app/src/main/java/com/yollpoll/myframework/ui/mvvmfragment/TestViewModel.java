@@ -4,9 +4,8 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 
-import com.yollpoll.fast.FastViewModel;
-import com.yollpoll.framework.base.BaseViewModel;
-import com.yollpoll.framework.mvvm.bindingwrapper.command.BindingCommand;
+import com.yollpoll.arch.binding.bindingwrapper.command.BindingCommand;
+import com.yollpoll.framework.fast.FastViewModel;
 
 /**
  * Created by spq on 2021/3/3

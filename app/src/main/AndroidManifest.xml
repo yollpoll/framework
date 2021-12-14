@@ -24,7 +24,7 @@
         <activity android:name=".paging.Paging3Activity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
-
+<!--&lt;!&ndash;&ndash;&gt;-->
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
         </activity>

@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.BindingConversion;
 
-import com.yollpoll.framework.log.LogUtils;
 
 /**
  * Created by spq on 2020-06-04

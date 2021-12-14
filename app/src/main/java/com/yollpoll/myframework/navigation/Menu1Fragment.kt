@@ -9,11 +9,11 @@ import androidx.navigation.NavHost
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.yollpoll.fast.FastFragment
-import com.yollpoll.fast.FastViewModel
-import com.yollpoll.framework.annotation.ContentView
-import com.yollpoll.framework.annotation.ViewModel
-import com.yollpoll.framework.log.LogUtils
+import com.yollpoll.arch.annotation.ContentView
+import com.yollpoll.arch.annotation.ViewModel
+import com.yollpoll.arch.log.LogUtils
+import com.yollpoll.framework.fast.FastFragment
+import com.yollpoll.framework.fast.FastViewModel
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.FragmentMenu1Binding
 import com.yollpoll.myframework.databinding.FragmentMenu2Binding

@@ -5,12 +5,14 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.databinding.Bindable;
 
-import com.yollpoll.framework.base.BaseViewModel;
+import com.yollpoll.arch.base.BaseViewModel;
+import com.yollpoll.framework.fast.FastViewModel;
+
 
 /**
  * Created by spq on 2020-06-02
  */
-public class TestDatabindingModel extends BaseViewModel {
+public class TestDatabindingModel extends FastViewModel {
     @Bindable
     private String name;
 

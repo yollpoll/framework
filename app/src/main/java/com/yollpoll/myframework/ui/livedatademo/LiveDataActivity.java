@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.yollpoll.framework.base.BaseActivity;
+import com.yollpoll.arch.base.BaseActivity;
 import com.yollpoll.myframework.R;
 
 /**

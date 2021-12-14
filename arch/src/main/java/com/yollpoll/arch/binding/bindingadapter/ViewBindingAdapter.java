@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.Observable;
 import androidx.databinding.ObservableBoolean;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.yollpoll.arch.binding.bindingwrapper.command.BindingCommand;
 
@@ -102,5 +103,13 @@ public class ViewBindingAdapter {
                 }
             }
         }
+    }
+    @BindingAdapter(value = {"adapter"})
+    public static void adapter(RecyclerView recyclerView, RecyclerView.Adapter adapter) {
+        recyclerView.setAdapter(adapter);
+    }
+    @BindingAdapter(value = {"layoutManager"})
+    public static void layoutManager(RecyclerView recyclerView, RecyclerView.LayoutManager manager) {
+        recyclerView.setLayoutManager(manager);
     }
 }

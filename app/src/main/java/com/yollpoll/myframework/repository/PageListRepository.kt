@@ -3,7 +3,6 @@ package com.yollpoll.myframework.repository
 import androidx.paging.Config
 import androidx.paging.PagedList
 import androidx.paging.toLiveData
-import com.yollpoll.framework.widgets.list.PageSourceFactor
 import com.yollpoll.myframework.room.MainDB
 import com.yollpoll.myframework.ui.pagingdemo.DataItem
 
@@ -19,7 +18,7 @@ class PageListRepository {
     )
 
     //factory
-    val dataSourceFactory = PageSourceFactor<DataItem>()
+//    val dataSourceFactory = PageSourceFactor<DataItem>()
 
     //    //生成ld
 //    val list =
@@ -29,8 +28,8 @@ class PageListRepository {
             MainDB.getDBInstace().getDataItemDao().query().toLiveData(myPagingConfig, boundaryCallback = MyBoundaryCallback())
 
 
-    fun invalidateDataSource() =
-            dataSourceFactory.sourceLiveData.value?.invalidate()
+//    fun invalidateDataSource() =
+//            dataSourceFactory.sourceLiveData.value?.invalidate()
 
     fun refresh() {
         val array = arrayListOf<DataItem>()

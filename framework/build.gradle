@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'kotlin-android-extensions'
+
 configurations {
     all {
         exclude module: 'httpclient'
@@ -11,13 +11,13 @@ configurations {
     }
 }
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "29.0.3"
 
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -41,164 +41,62 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
-
-def lifecycle_version = "2.2.0"
-def room_version = "2.3.0"
-def arch_version = "2.1.0"
-def ktx_version="2.3.1"//官方kotlin扩展库版本
-
 dependencies {
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'commons-beanutils:commons-beanutils:1.9.3'
     implementation('com.novoda:bintray-release:0.2.7') {
         exclude group: 'commons-beanutils'
     }
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-//    api project(path: ':annotation')
-
-
-//    annotationProcessor project(path: ':annotation-compiler')
-//    api project(path: ':annotation')
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    api 'com.orhanobut:logger:2.2.0'
-    implementation "androidx.core:core-ktx:1.3.2"
-
-
-//    implementation "androidx.room:room-runtime:$room_version"
-//    kapt "androidx.room:room-compiler:$room_version"
-//
-//    // optional - Kotlin Extensions and Coroutines support for Room
-//    implementation "androidx.room:room-ktx:$room_version"
-//
-//    // optional - Test helpers
-//    testImplementation "androidx.room:room-testing:$room_version"
-
-
-    // ViewModel
-    api "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
-    // LiveData
-    api "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
-    // Lifecycles only (without ViewModel or LiveData)
-    api "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
-
-    // Saved state module for ViewModel
-    api "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-
-    // Annotation processor
-    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-    // alternately - if using Java8, use the following instead of lifecycle-compiler
-    api "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-
-    // optional - helpers for implementing LifecycleOwner in a Service
-    api "androidx.lifecycle:lifecycle-service:$lifecycle_version"
-
-    // optional - ProcessLifecycleOwner provides a lifecycle for the whole application process
-    api "androidx.lifecycle:lifecycle-process:$lifecycle_version"
-
-    // optional - ReactiveStreams support for LiveData
-    api "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
-
-    // optional - Test helpers for LiveData
-    testImplementation "androidx.arch.core:core-testing:$arch_version"
-
-    api 'com.google.code.gson:gson:2.8.6'
-
+    //appcompat
+    implementation myDependencies.appcompat
+    //androidx.core
+    implementation myDependencies.androidxKtx
+    //logger
+    api myDependencies.logger
+    //lifecycle
+    api myDependencies.viewModel
+    api myDependencies.liveData
+    api myDependencies.lifycycles
+    api myDependencies.viewModelSaveState
+    kapt myDependencies.lifecycleProcessor
+    api myDependencies.lifecycleJava8
+    api myDependencies.lifecycleService
+    api myDependencies.lifecycleProcess
+    api myDependencies.lifecycleStream
+    testImplementation myDependencies.liveDataTestHelper
+    //nv-webSocket
     api 'com.neovisionaries:nv-websocket-client:2.10'
-
+    //gson
+    api myDependencies.gson
     //retrofit
-    //配置retrofit2.0
-    api 'com.squareup.retrofit2:retrofit:2.9.0'
-    api 'com.squareup.retrofit2:converter-gson:2.9.0'
-    //Rxjava2需要依赖
-    api 'io.reactivex.rxjava2:rxjava:2.2.21'
-    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-
-    //让retrofit支持Rxjava2
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
-    api 'com.squareup.okhttp3:okhttp:4.9.0'
-    api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
-
-    //json解析库Moshi
-    api 'com.squareup.moshi:moshi-kotlin:1.8.0'
-//    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
-    api "com.squareup.retrofit2:converter-moshi:2.7.1"
-
-
-    //DataStore Proto DataStore
-    api "androidx.datastore:datastore:1.0.0-alpha08"
-    // optional - RxJava2 support
-    api "androidx.datastore:datastore-rxjava2:1.0.0-alpha08"
-    // optional - RxJava3 support
-    api "androidx.datastore:datastore-rxjava3:1.0.0-alpha08"
-    // Alternatively - use the following artifact without an Android dependency
-    api "androidx.datastore:datastore-core:1.0.0-alpha08"
-
-
-    // Preferences DataStore (SharedPreferences like APIs)
-    api "androidx.datastore:datastore-preferences:1.0.0-alpha08"
-    // optional - RxJava2 support
-    api "androidx.datastore:datastore-preferences-rxjava2:1.0.0-alpha08"
-    // optional - RxJava3 support
-    api "androidx.datastore:datastore-preferences-rxjava3:1.0.0-alpha08"
-    // Alternatively - use the following artifact without an Android dependency.
-    api "androidx.datastore:datastore-preferences-core:1.0.0-alpha08"
-
-    /*paging start*/
-//    def paging_version = "2.1.2"
-
-    def paging_version = "3.0.0-rc01"
-
-    api "androidx.paging:paging-runtime-ktx:$paging_version"
-    // For Kotlin use paging-runtime-ktx
-    // alternatively - without Android dependencies for testing
-    api "androidx.paging:paging-common-ktx:$paging_version"
-    // For Kotlin use paging-common-ktx
-    // optional - RxJava support
-    api "androidx.paging:paging-rxjava2-ktx:$paging_version"
-    // For Kotlin use paging-rxjava2-ktx
-
-
-    implementation "androidx.paging:paging-runtime:$paging_version"
-
-    // alternatively - without Android dependencies for tests
-    testImplementation "androidx.paging:paging-common:$paging_version"
-
-    // optional - RxJava2 support
-    implementation "androidx.paging:paging-rxjava2:$paging_version"
-
-    // optional - RxJava3 support
-    implementation "androidx.paging:paging-rxjava3:$paging_version"
-
-    // optional - Guava ListenableFuture support
-    implementation "androidx.paging:paging-guava:$paging_version"
-
-    /*paging end*/
-
-
-    //三大控件kotlin拓展
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$ktx_version"
-    api "androidx.lifecycle:lifecycle-runtime-ktx:$ktx_version"
-    api "androidx.lifecycle:lifecycle-livedata-ktx:$ktx_version"
-
-    //本地注解
-    api('io.github.yollpoll:annotation:0.0.1') {
+    api myDependencies.retrofit
+    api myDependencies.gsonConvert
+    //moshi
+    api myDependencies.moshi
+    api myDependencies.moshiConvert
+    //dataStore
+    api myDependencies.dataStore
+    api myDependencies.dataStorePreferences
+    //paging
+    api myDependencies.pagingRuntimeKtx
+    testImplementation myDependencies.pagingTest
+    //lifecycleKtx
+    api myDependencies.viewModelKtx
+    api myDependencies.lifecycleruntimeKtx
+    api myDependencies.liveDataKtx
+    //arch
+    api (myArch.arch){
         changing = true
         transitive = true
     }
-
-
-
-    //第三方控件
-    //loading
-    implementation 'com.wang.avi:library:2.1.3'
-
 }
 repositories {
     mavenCentral()
@@ -206,7 +104,7 @@ repositories {
 ext {
     PUBLISH_GROUP_ID = "io.github.yollpoll"        //项目包名
     PUBLISH_ARTIFACT_ID = 'framework'            //项目名
-    PUBLISH_VERSION = "0.0.8"                //版本号
+    PUBLISH_VERSION = "0.0.9"                //版本号
 //    PUBLISH_VERSION = "1.0.0-SNAPSHOT"                //快照
 }
 apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"

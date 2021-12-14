@@ -2,7 +2,7 @@ package com.yollpoll.myframework.room
 
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteOpenHelper
-import com.yollpoll.framework.base.BaseApplication
+import com.yollpoll.arch.base.BaseApplication
 import com.yollpoll.myframework.paging.PagingItem
 import com.yollpoll.myframework.ui.pagingdemo.DataItem
 import com.yollpoll.myframework.ui.pagingdemo.PagingVM

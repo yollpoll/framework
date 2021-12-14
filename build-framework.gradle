@@ -1,0 +1,7 @@
+dependencies{
+    implementation project(path: ':framework')
+
+    //kapt
+    kapt project(':annotationProcessor')
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.12.0'
+}

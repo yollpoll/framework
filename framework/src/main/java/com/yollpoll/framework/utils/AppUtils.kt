@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import com.yollpoll.annotation.annotation.OnMessage
-import com.yollpoll.framework.log.LogUtils
+import com.yollpoll.arch.log.LogUtils
 import java.lang.reflect.InvocationTargetException
 
 /**

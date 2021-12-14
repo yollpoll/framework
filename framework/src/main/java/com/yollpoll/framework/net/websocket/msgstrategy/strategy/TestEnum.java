@@ -1,6 +1,6 @@
 package com.yollpoll.framework.net.websocket.msgstrategy.strategy;
 
-import com.yollpoll.framework.message.liveeventbus.LiveEventBus;
+import com.yollpoll.arch.message.liveeventbus.LiveEventBus;
 import com.yollpoll.framework.net.websocket.msgstrategy.MessageStrategy;
 
 /**

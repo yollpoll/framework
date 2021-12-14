@@ -4,11 +4,11 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 
-import com.yollpoll.fast.FastViewModel;
-import com.yollpoll.framework.annotation.PreExecute;
-import com.yollpoll.framework.mvvm.bindingwrapper.command.BindingAction;
-import com.yollpoll.framework.mvvm.bindingwrapper.command.BindingCommand;
-import com.yollpoll.myframework.ui.test.MR;
+import com.yollpoll.arch.annotation.PreExecute;
+import com.yollpoll.arch.binding.bindingwrapper.command.BindingCommand;
+import com.yollpoll.framework.fast.FastViewModel;
+import com.yollpoll.myframework.ui.fragment.MR;
+
 
 /**
  * Created by spq on 2021/2/13

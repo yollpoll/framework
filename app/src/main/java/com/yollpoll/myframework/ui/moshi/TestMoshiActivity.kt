@@ -6,12 +6,11 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.aispeech.medicalcall.net.HttpServiceFactory
 import com.squareup.moshi.JsonClass
-import com.yollpoll.fast.FastActivity
-import com.yollpoll.fast.FastApplication
-import com.yollpoll.fast.FastViewModel
-import com.yollpoll.framework.annotation.ContentView
-import com.yollpoll.framework.annotation.ViewModel
-import com.yollpoll.framework.extend.*
+import com.yollpoll.arch.annotation.ContentView
+import com.yollpoll.arch.annotation.ViewModel
+import com.yollpoll.framework.extensions.*
+import com.yollpoll.framework.fast.FastActivity
+import com.yollpoll.framework.fast.FastViewModel
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.ActivityTestMoshiBinding
 import com.yollpoll.myframework.net.HttpService
@@ -87,8 +86,6 @@ class TestMoshiViewModel(application: Application) : FastViewModel(application) 
         try {
             val forumlist =
                 HttpServiceFactory.getInstance().createService(HttpService::class.java).getForum()
-
-
             Log.d(TAG, "loadData: ${forumlist.size}")
         } catch (e: Exception) {
             Log.d(TAG, "loadData: ${e.message}")
@@ -98,5 +95,6 @@ class TestMoshiViewModel(application: Application) : FastViewModel(application) 
 
 }
 
+//@JsonClass(generateAdapter = true)
 @JsonClass(generateAdapter = true)
-public data class TestBean(val name: String, val id: Int)
+data class TestBean(val name: String, val id: Int)

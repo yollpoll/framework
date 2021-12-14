@@ -22,7 +22,6 @@ class HttpServiceFactory private constructor() : Serializable {
         }
 
         override fun okHttpClientBuilder(builder: OkHttpClient.Builder) {
-
         }
 
         override fun retrofit(retrofit: Retrofit) {
@@ -33,6 +32,7 @@ class HttpServiceFactory private constructor() : Serializable {
         }
 
         override fun retrofitBuilder(builder: Retrofit.Builder) {
+//            builder.addConverterFactory(MoshiConverterFactory.create())
         }
 
     })

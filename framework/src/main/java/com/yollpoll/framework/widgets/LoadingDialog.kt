@@ -4,7 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import com.yollpoll.framework.R
 import com.yollpoll.framework.databinding.DialogLoadingBinding
-import com.yollpoll.framework.extend.dp2px
+import com.yollpoll.framework.extensions.dp2px
 
 /**
  * Created by spq on 2021/5/8

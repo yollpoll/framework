@@ -1,7 +1,7 @@
 package com.yollpoll.myframework;
 
-import com.yollpoll.framework.base.BaseApplication;
-import com.yollpoll.framework.log.LogUtils;
+import com.yollpoll.arch.base.BaseApplication;
+import com.yollpoll.arch.log.LogUtils;
 import com.yollpoll.framework.router.Dispatcher;
 import com.yollpoll.framework.router.OnDispatchListener;
 

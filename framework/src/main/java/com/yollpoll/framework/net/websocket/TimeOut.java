@@ -3,7 +3,7 @@ package com.yollpoll.framework.net.websocket;
 import android.util.Log;
 
 
-import com.yollpoll.framework.log.LogUtils;
+import com.yollpoll.arch.log.LogUtils;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,8 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
-import com.yollpoll.framework.base.BaseActivity;
-import com.yollpoll.framework.base.BaseApplication;
+import com.yollpoll.arch.base.BaseActivity;
+import com.yollpoll.arch.base.BaseApplication;
 import com.yollpoll.myframework.R;
 import com.yollpoll.myframework.databinding.ActivityDatabindingTestBinding;
 

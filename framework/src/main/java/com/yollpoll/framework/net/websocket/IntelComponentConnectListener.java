@@ -1,7 +1,7 @@
 package com.yollpoll.framework.net.websocket;
 
 import com.neovisionaries.ws.client.WebSocketException;
-import com.yollpoll.framework.log.LogUtils;
+import com.yollpoll.arch.log.LogUtils;
 
 import java.util.List;
 import java.util.Map;

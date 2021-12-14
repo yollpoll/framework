@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.scheduler.Requirements;
 import com.google.android.exoplayer2.ui.DownloadNotificationHelper;
 import com.google.android.exoplayer2.upstream.cache.NoOpCacheEvictor;
 import com.google.android.exoplayer2.upstream.cache.SimpleCache;
-import com.yollpoll.framework.threadpool.ThreadPool;
+import com.yollpoll.arch.threadpool.ThreadPool;
 import com.yollpoll.myframework.exoplayer.MediaUtils;
 
 import java.io.File;
@@ -126,7 +126,7 @@ public class DownloadUtils {
                     getDatabaseProvider(context),
                     getDownloadCache(context),
                     MediaUtils.getHttpFactory(),
-                    ThreadPool.INSTANCE.getThreadPoolExecutor());
+                    ThreadPool.getThreadPoolExecutor());
 
 
             // Optionally, setters can be called to configure the download manager.

@@ -6,9 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.paging.*
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.yollpoll.fast.FastViewModel
-import com.yollpoll.framework.widgets.list.PageDataSource
-import com.yollpoll.framework.widgets.list.PageSourceFactor
+import com.yollpoll.framework.fast.FastViewModel
 import com.yollpoll.myframework.repository.PageListRepository
 
 /**

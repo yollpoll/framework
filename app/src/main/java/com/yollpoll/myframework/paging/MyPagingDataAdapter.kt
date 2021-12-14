@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import com.yollpoll.framework.widgets.list.BaseViewHolder
+import com.yollpoll.framework.paging.BaseViewHolder
 import com.yollpoll.myframework.R
 
 /**

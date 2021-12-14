@@ -2,7 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+            name="view"
+            type="com.yollpoll.myframework.ui.moshi.TestMoshiActivity" />
+        <variable
+            name="viewModel"
+            type="com.yollpoll.myframework.ui.moshi.TestMoshiViewModel" />
     </data>
 
     <RelativeLayout

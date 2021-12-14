@@ -8,7 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.yollpoll.fast.FastViewModel;
+import com.yollpoll.framework.fast.FastViewModel;
 
 public class HomeViewModel extends FastViewModel {
 

@@ -2,7 +2,8 @@ package com.yollpoll.framework.utils;
 
 import android.widget.Toast;
 
-import com.yollpoll.framework.base.BaseApplication;
+import com.yollpoll.arch.base.BaseApplication;
+
 
 /**
  * Created by spq on 2021/2/13

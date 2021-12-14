@@ -4,7 +4,8 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.yollpoll.framework.log.LogUtils;
+
+import com.yollpoll.arch.log.LogUtils;
 
 import java.net.URI;
 import java.net.URLDecoder;

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import com.yollpoll.framework.base.BaseApplication;
+import com.yollpoll.arch.base.BaseApplication;
 import com.yollpoll.framework.net.websocket.DisposeService.NtfDisposeService;
 import com.yollpoll.framework.net.websocket.msgstrategy.MsgStrategyManager;
 

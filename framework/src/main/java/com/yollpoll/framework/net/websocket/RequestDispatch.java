@@ -1,7 +1,8 @@
 package com.yollpoll.framework.net.websocket;
 
 
-import com.yollpoll.framework.log.LogUtils;
+
+import com.yollpoll.arch.log.LogUtils;
 
 import java.util.UUID;
 import java.util.concurrent.BlockingQueue;

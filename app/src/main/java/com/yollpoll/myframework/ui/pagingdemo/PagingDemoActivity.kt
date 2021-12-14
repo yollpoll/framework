@@ -15,11 +15,10 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.yollpoll.framework.annotation.ContentView
-import com.yollpoll.framework.annotation.Extra
-import com.yollpoll.framework.annotation.ViewModel
-import com.yollpoll.framework.base.BaseActivity
-import com.yollpoll.framework.log.LogUtils
+import com.yollpoll.arch.annotation.ContentView
+import com.yollpoll.arch.annotation.Extra
+import com.yollpoll.arch.annotation.ViewModel
+import com.yollpoll.arch.base.BaseActivity
 import com.yollpoll.framework.utils.ToastUtil
 import com.yollpoll.myframework.R
 import com.yollpoll.myframework.databinding.ActivityPagingBinding
