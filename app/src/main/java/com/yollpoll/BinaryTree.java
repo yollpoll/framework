@@ -56,6 +56,12 @@ public class BinaryTree {
         List<Integer> res971 = new Solution971().flipMatchVoyage(constructTree(1, 2, 3), 1, 3, 2);
         System.out.println("971:" + res971.size());
         new Solution988().smallestFromLeaf(constructTree(2, 2, 1, null, 1, 0, null, 0));
+
+        new Solution1080().sufficientSubset(constructTree(1, 2, -3, -5, null, 4, null), -1);
+
+        new Solution69().mySqrt(2147395599);
+
+        new Solution167().twoSum(new int[]{2,7,11,15},9);
     }
 
 
@@ -862,9 +868,10 @@ public class BinaryTree {
     }
 
     static class Solution988 {
-        String ans="~";
+        String ans = "~";
+
         public String smallestFromLeaf(TreeNode root) {
-            dfs(root,new StringBuilder());
+            dfs(root, new StringBuilder());
             return ans;
         }
 
@@ -881,9 +888,167 @@ public class BinaryTree {
             sb.reverse();
             dfs(root.left, sb);
             dfs(root.right, sb);
-            sb.deleteCharAt(sb.length()-1);
+            sb.deleteCharAt(sb.length() - 1);
         }
 
 
+    }
+
+    class Solution1028 {
+        Map<Integer, Integer> deep = new HashMap<Integer, Integer>();
+        List<Integer> list = new ArrayList<>();
+
+        public TreeNode recoverFromPreorder(String S) {
+            int i = 0;
+            while (i < S.length()) {
+                int j = 0;
+                while (S.charAt(i) == '-') {
+                    i++;
+                    j++;
+                }
+                String numStr = "";
+                while (S.charAt(i) != '-') {
+                    numStr += S.charAt(i);
+                    i++;
+                }
+                int num = Integer.parseInt(numStr);
+                list.add(num);
+                deep.put(num, j);
+            }
+            return dfs(0, list.size() - 1);
+        }
+
+        public TreeNode dfs(int l, int r) {
+            if (l < r) {
+                return null;
+            }
+            if (l == r) {
+                return new TreeNode(list.get(l));
+            }
+            TreeNode root = new TreeNode(list.get(l));
+            int width = leftWidth(deep.get(list.get(l)) + 1, l + 1, r);
+            TreeNode left = dfs(l + 1, l + width);
+            TreeNode right = dfs(l + width + 1, r);
+            root.left = left;
+            root.right = right;
+            return root;
+        }
+
+        //返回左子树的宽度
+        public int leftWidth(int deepVal, int l, int r) {
+            for (int i = l; i <= r; i++) {
+                int curNum = list.get(i);
+                if (deep.get(curNum) == deepVal) {
+                    return i - l;
+                }
+            }
+            return r - l + 1;
+        }
+
+    }
+
+    static class Solution1080 {
+        public TreeNode sufficientSubset(TreeNode root, int limit) {
+            dfs(root, limit);
+            return root;
+        }
+
+        public int dfs(TreeNode root, int limit) {
+            if (null == root) {
+                return 0;
+            }
+//            int right = 0, left = 0;
+//            if (null != root.left) {
+//                left = dfs(root.left, limit - root.val);
+//                if (left + root.val < limit) {
+//                    root.left = null;
+//                }
+//            }
+//
+//            if (null != root.right) {
+//                right = dfs(root.right, limit - root.val);
+//                if (right + root.val < limit) {
+//                    root.right = null;
+//                }
+//            }
+//
+            int cur;
+            if (root.left == null && root.right == null) {
+                cur = root.val;
+            } else if (root.left != null && root.right != null) {
+                int left = dfs(root.left, limit - root.val);
+                if (left + root.val < limit) {
+                    root.left = null;
+                }
+
+                int right = dfs(root.right, limit - root.val);
+                if (right + root.val < limit) {
+                    root.right = null;
+                }
+
+                cur = Math.max(left, right) + root.val;
+            } else if (root.left != null) {
+                int left = dfs(root.left, limit - root.val);
+                if (left + root.val < limit) {
+                    root.left = null;
+                }
+
+                cur = root.val + left;
+            } else {
+                int right = dfs(root.right, limit - root.val);
+                if (right + root.val < limit) {
+
+
+                    root.right = null;
+                }
+                cur = root.val + right;
+            }
+            return cur;
+        }
+    }
+    static class Solution69 {
+        public int mySqrt(int x) {
+            int low =0;
+            int hi=x;
+            while(low<=hi){
+                int mid=low+(hi-low)/2;
+                if(x/mid==mid){
+                    return mid;
+                }else if(x/mid>mid){
+                    low=mid+1;
+                }else{
+                    hi=mid-1;
+                }
+            }
+            return hi;
+
+        }
+    }
+    static class Solution167 {
+        public int[] twoSum(int[] numbers, int target) {
+            int[] res=new int[2];
+            for(int i=0;i<numbers.length-1;i++){
+                int index=findIndex(numbers,target-numbers[i],i+1,numbers.length-1);
+                if(index!=-1){
+                    res[0]=i;
+                    res[1]=index;
+                    return res;
+                }
+            }
+            return res;
+        }
+        public int findIndex(int[] numbers,int target,int l,int r){
+            while(l<=r){
+                int mid=l+(r-l)/2;
+                if(numbers[mid]==target){
+                    return mid;
+                }else if(numbers[mid]<target){
+                    l=mid+1;
+                }else{
+                    r=mid-1;
+                }
+            }
+            return -1;
+        }
     }
 }
